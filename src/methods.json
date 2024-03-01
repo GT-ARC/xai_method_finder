@@ -47,7 +47,7 @@
                 "tag": "heatmap"
             }
         ],
-        "qr_code": "./img/qr_codes/shap.svg"
+        "qr_code": "/img/qr_codes/shap.svg"
     },
     {
         "title": "LIME",
@@ -97,7 +97,7 @@
                 "tag": "localization"
             }
         ],
-        "qr_code": "./img/qr_codes/lime.svg"
+        "qr_code": "/img/qr_codes/lime.svg"
     },
     {
         "title": "LRP",
@@ -139,7 +139,7 @@
                 "tag": "heatmap"
             }
         ],
-        "qr_code": "./img/qr_codes/lrp.svg"
+        "qr_code": "/img/qr_codes/lrp.svg"
     },
     {
         "title": "CEM",
@@ -177,7 +177,7 @@
                 "tag": "localization"
             }
         ],
-        "qr_code": "./img/qr_codes/cem.svg"
+        "qr_code": "/img/qr_codes/cem.svg"
     },
     {
         "title": "ANCHORS",
@@ -231,7 +231,7 @@
                 "tag": "localization"
             }
         ],
-        "qr_code": "./img/qr_codes/anchors.svg"
+        "qr_code": "/img/qr_codes/anchors.svg"
     },
     {
         "title": "DICE",
@@ -269,7 +269,7 @@
                 "tag": "localization"
             }
         ],
-        "qr_code": "./img/qr_codes/dice.svg"
+        "qr_code": "/img/qr_codes/dice.svg"
     },
     {
         "title": "SAGE",
@@ -315,7 +315,7 @@
                 "tag": "feature_importance"
             }
         ],
-        "qr_code": "./img/qr_codes/sage.svg"
+        "qr_code": "/img/qr_codes/sage.svg"
     },
     {
         "title": "GradCAM",
@@ -357,7 +357,7 @@
                 "tag": "localization"
             }
         ],
-        "qr_code": "./img/qr_codes/grad_cam.svg"
+        "qr_code": "/img/qr_codes/grad_cam.svg"
     },
     {
         "title": "DeepLIFT",
@@ -403,7 +403,7 @@
                 "tag": "localization"
             }
         ],
-        "qr_code": "./img/qr_codes/deep_lift.svg"
+        "qr_code": "/img/qr_codes/deep_lift.svg"
     },
     {
         "title": "ProtoCF",
@@ -449,7 +449,7 @@
                 "tag": "localization"
             }
         ],
-        "qr_code": "./img/qr_codes/proto_cf.svg"
+        "qr_code": "/img/qr_codes/proto_cf.svg"
     },
     {
         "title": "ProfWeight",
@@ -499,7 +499,7 @@
                 "tag": "localization"
             }
         ],
-        "qr_code": "./img/qr_codes/prof_weight.svg"
+        "qr_code": "/img/qr_codes/prof_weight.svg"
     },
     {
         "title": "ProtoDash",
@@ -549,6 +549,6 @@
                 "tag": "localization"
             }
         ],
-        "qr_code": "./img/qr_codes/proto_dash.svg"
+        "qr_code": "/img/qr_codes/proto_dash.svg"
     }
 ]

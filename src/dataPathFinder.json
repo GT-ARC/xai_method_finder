@@ -3,14 +3,14 @@
     "title": "Willkommen zum XAI Method Finder!",
     "description": "Resultierend aus der öffentlichen Forderung nach fairer und für Menschen verständlicher KI, wurde in der Wissenschaft eine Vielzahl an Werkzeugen zur Erklärbarkeit entwickelt. <b>Die Auswahl eines passenden Erklärungswerkzeugs ist ein komplexes Vorhaben, das Expertenwissen benötigt.</b></br></br> In diesem Teil des XAI Tools möchten wir Dir <b>helfen, Erklärungsmethoden zu finden, die für Deinen Anwendungsfall geeignet sind.</b> Falls Du neu in dem Gebiet der erklärbaren künstlichen Intelligenz bist, empfehlen wir Dir zunächst unser <b><u>XAI Tutorial als Einstieg.</u></b>",
     "elements": [
-      { "type": "image", "id": "robo_logo", "target": "./img/robot-intro.svg" }
+      { "type": "image", "id": "robo_logo", "target": "/img/robot-intro.svg" }
     ]
   },
   {
     "title": "Hinweise zum Start",
     "description": "Im Verlauf des Method Finder werden dir verschiedene Fragen zu Deiner Anwendung, aber auch generelle Fragen zu Deinem Hintergrund und dem Kontext der Anwendung abgefragt. Basierend auf den Antworten empfehlen wir dir Werkzeuge, die nach aktuellem Stand der Wissenschaft für deinen Fall sinnvoll sein könnten.</br></br> <b>Beachte:</b> Wir schlagen Dir keine konkreten Erklärbarkeitsmethoden vor, sondern erstellen eine <b>Auswahl an Methoden und Design Empfehlungen</b> für Deinen Anwendungsfall, die perfekt für die Bedürfnisse Deiner Zielgruppe ist.",
     "elements": [
-      { "type": "image", "id": "bulb_icon", "target": "./img/bulb_icon.svg" }
+      { "type": "image", "id": "bulb_icon", "target": "/img/bulb_icon.svg" }
     ]
   },
   {
@@ -235,7 +235,7 @@
       {
         "type": "image",
         "id": "talking_people",
-        "target": "./img/talking_people.svg"
+        "target": "/img/talking_people.svg"
       }
     ]
   },
@@ -246,7 +246,7 @@
       {
         "type": "image",
         "id": "question_types",
-        "target": "./img/question_types1.svg"
+        "target": "/img/question_types1.svg"
       },
       {
         "type": "question",
@@ -261,7 +261,7 @@
       {
         "type": "image",
         "id": "question_types",
-        "target": "./img/question_types2.svg"
+        "target": "/img/question_types2.svg"
       },
       {
         "type": "question",
@@ -276,7 +276,7 @@
       {
         "type": "image",
         "id": "question_types",
-        "target": "./img/question_types3.svg"
+        "target": "/img/question_types3.svg"
       },
       {
         "type": "question",

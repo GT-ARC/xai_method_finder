@@ -523,11 +523,6 @@ const MethodFinder = (props) => {
                 ))}
               </div>
             )}
-            {currentIndex === 12 && (validMethods.length === 0 || validMethods.includes("unknown")) && (
-              <div className="no_method_container">
-                <p><b>Es wurden keine Methoden gefunden, die Ihren ausgewählten Kriterien entsprechen.</b></p>
-              </div>
-            )}
 
             {currentIndex === 13 && targetGroup.length > 0 && !targetGroup.includes("unknown") && (
               <>                     
@@ -541,7 +536,6 @@ const MethodFinder = (props) => {
               </div>
               </>
             )}
-
       </div>
 
       </div>
