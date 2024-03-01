@@ -1,0 +1,59 @@
+:root{
+    /* Colors */
+    --white: #FFFFFF;
+    --black: #1E1E1E;
+    --goki_background: #D9FAFB;
+    --goki_green: #2DADAF;
+    --goki_darkgreen: #217D80;
+    --goki_orange: #E58253;
+    --goki_darkorange: #D96552;
+    --goki_mint: #3DE0E6;
+
+    /*Fonts*/
+    --goki_font: 'Roboto', sans-serif;
+}
+
+/*Define font and background color*/
+body {
+    font-family: var(--goki_font);
+    background-color: var(--goki_background);
+    width: 90%;
+}
+
+/*Define Heading Styles h1 and h2, add more if needed*/
+h1 {
+    display: block;
+    color: var(--goki_darkgreen);
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+    font-size: 2vw;
+}
+
+h2 {
+    display: block;
+    font-size: 24px;
+    color: var(--goki_darkgreen);
+    margin-top: 0.83em;
+    margin-bottom: 0.83em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+/*Style definition for orange description text for each page*/
+/*REMEMBER: you need to provide the class="description" to your <p> to make sure it works*/
+.description {
+    display: block;
+    font-size: 1.3vw;
+    color: var(--goki_orange);
+}
+
+.description_yellow {
+    display: block;
+    color: var(--goki_darkgreen);
+    text-align: center;
+    font-size: 1.6vw;
+}

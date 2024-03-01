@@ -1,0 +1,703 @@
+body {
+  margin: 4%;
+}
+
+#robo_logo {
+  display: block;
+  margin: auto;
+  width: 12vw;
+  margin-top: 6%;
+}
+
+#model_explanation {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+#about_model_explanation {
+  margin: auto;
+  margin-top: 15%;
+  width: 18vw;
+}
+
+#model_cards {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 35%;
+}
+
+#question_types {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+  width: 75%;
+}
+
+#xai_solution,
+#design_recommendation {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+#bulb_icon {
+  margin: auto;
+  margin-top: 12%;
+  width: 9vw;
+}
+
+#talking_people {
+  display: block;
+  margin: auto;
+  margin-top: 13%;
+  width: 12vw;
+}
+
+#craftsman {
+  margin: auto;
+  width: 8vw;
+  margin-top: 10%;
+}
+
+.div_two_columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 90%;
+  margin: auto;
+}
+
+.general_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 95%;
+  margin: auto;
+  height: 23vw;
+}
+
+.output_container {
+  width: 95%;
+  margin: auto;
+  margin-top: -2vw;
+  height: 27vw;
+}
+
+.title_and_description {
+  margin-top: 5%;
+}
+
+.description_with_buttons {
+  margin-top: 5%;
+  width: 30vw;
+}
+
+.page_title {
+  width: 95%;
+  margin: auto;
+  margin-top: 3%;
+}
+
+.question_table {
+  width: 45%;
+  display: block;
+  margin: auto;
+}
+
+.button {
+  height: 8vw;
+  width: 8vw;
+  outline: none;
+  padding: 0.5vw;
+  background-color: #ffffff;
+  border: 0.2vw solid;
+  border-color: var(--goki_orange);
+  cursor: pointer;
+  border-radius: 7%;
+  transition: all 0.2s ease-in-out;
+}
+
+.selected {
+  height: 8.5vw;
+  width: 8.5vw;
+  object-fit: cover;
+  padding: 0.5vw;
+  background-color: #ffffff;
+  box-shadow: 0px 1vw 1.5vw rgba(0, 0, 0, 0.5);
+  border: 0.3vw solid;
+  border-color: var(--goki_orange);
+  cursor: pointer;
+  border-radius: 7%;
+  transition: all 0.2s ease-in-out;
+}
+
+.button_content {
+  display: grid;
+  grid-template-rows:repeat(2, 1fr);
+  align-items: center;
+  justify-items: center;
+}
+
+.icons {
+  margin-top: 4%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 0.5%;
+}
+
+.icon_container {
+  height: 3.5vw;
+  width: 3.5vw;
+  margin-top: 5%;
+}
+
+.button_title {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: bold;
+  color: var(--goki_orange);
+  text-transform: uppercase;
+  font-size: 0.7vw;
+  text-align: center;
+  white-space: normal;
+}
+
+#zeki_logo {
+  width: 8%;
+}
+
+#bmas_logo {
+  width: 12%;
+  height: 12%;
+}
+
+#goki_logo {
+  width: 8%;
+  height: 8%;
+  float: right;
+}
+
+.page_switch_button {
+  border-radius: 1vw;
+  background-color: var(--goki_orange);
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  font-size: 1vw;
+  padding: 1.2%;
+  width: 7%;
+  transition: all 0.2s;
+  cursor: pointer;
+  margin-bottom: 3%;
+  margin-top: 3%;
+  margin-left: 1%;
+  float: right;
+}
+
+.page_switch_button:active {
+  background-color: var(--goki_darkorange);
+  box-shadow: 0 0.5vw #666;
+  transform: translateY(4px);
+}
+
+.home_page_button {
+  background-color: var(--goki_darkgreen);
+  width: 5%;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.home_page_button:hover{
+  transform: translateY(0.5vw);
+}
+
+.next_page_button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.next_page_button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -2vw;
+  transition: 0.5s;
+}
+
+.next_page_button:hover span {
+  padding-right: 2vw;
+}
+
+.next_page_button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.previous_page_button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.previous_page_button span:after {
+  content: '\00ab';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: -2vw;
+  transition: 0.5s;
+}
+
+.previous_page_button:hover span {
+  padding-left: 1.5vw;
+}
+
+.previous_page_button:hover span:after {
+  opacity: 1;
+  left: 0;
+}
+
+.responsive-table li {
+  border-radius: 3px;
+  padding: 25px 30px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.responsive-table .table-header {
+  background-color: var(--goki_darkgreen);
+  color: var(--goki_background);
+  font-size: 1.1vw;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  align-items: center; /* Center vertically */
+}
+
+.responsive-table .table-row {
+  background-color: #ffffff;
+  box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+  align-items: center; /* Center vertically */
+}
+
+.question-table {
+  margin-top: 20%;
+}
+
+.question-table li {
+  padding: 2% 2%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.question-table .table-header {
+  background-color: var(--goki_darkgreen);
+  color: var(--goki_background);
+  font-size: 0.8vw;
+  letter-spacing: 0.03em;
+  align-items: center;
+  padding: 1vw;
+  border-radius: 0.2vw;
+}
+
+.question-table .table-row {
+  background-color: #ffffff;
+  box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 0.2vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.question-table .col-1 {
+  flex-basis: 80%;
+  font-size: 0.9vw;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+  display: none;
+  visibility: hidden;
+}
+.checkbox-wrapper {
+  --size: 4.5vw;
+  display: flex;
+}
+
+.checkbox-wrapper label {
+  width: var(--size);
+  height: calc(var(--size) / 2);
+  box-sizing: border-box;
+  border: 0.2vw solid;
+  float: left;
+  border-radius: 2vw;
+  position: relative;
+  cursor: pointer;
+  transition: 0.3s ease;
+  color: var(--goki_darkgreen);
+}
+.checkbox-wrapper input[type="checkbox"]:checked + label {
+  background: var(--goki_orange);
+}
+.checkbox-wrapper input[type="checkbox"]:checked + label:before {
+  left: calc(var(--size) / 2);
+}
+.checkbox-wrapper label:before {
+  transition: 0.3s ease;
+  content: "";
+  width: calc((var(--size) / 2) - 0.8vw);
+  height: calc((var(--size) / 2) - 0.8vw);
+  position: absolute;
+  background: var(--goki_background);
+  left: 0.2vw;
+  top: 0.2vw;
+  box-sizing: border-box;
+  border: 0.2vw solid;
+  color: var(--goki_darkgreen);
+  border-radius: 2vw;
+}
+
+.buttons_method_finder {
+  align-items: center;
+  margin-top: 7%;
+  margin-bottom: 10%;
+  height: 10vw;
+}
+
+.buttons_method_finder .text {
+  display: block;
+  color: var(--goki_darkgreen);
+  text-align: center;
+  font-size: 1.1vw;
+  margin-top: 4%;
+}
+
+.slider_method_finder {
+  margin-top: 8%;
+}
+
+.slider_method_finder .text {
+  display: block;
+  color: var(--goki_darkgreen);
+  text-align: center;
+  font-size: 1.1vw;
+}
+
+.additional_info {
+  margin-bottom: 5%;
+  margin-top: 5%;
+  display: block;
+  flex-direction: row;
+  justify-content: center;
+  height: 50%;
+}
+
+.slider_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+}
+
+.slider {
+  appearance: none;
+  width: 50%;
+  height: 0.8vw;
+  background: #d4d2d2;
+  opacity: 0.6;
+  transition: opacity 0.5s;
+}
+
+.slider:hover {
+  opacity: 0.9;
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1.3vw;
+  height: 1.6vw;
+  background: var(--goki_darkgreen);
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.slider_labels {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9vw;
+  font-weight: bold;
+  color: var(--goki_darkgreen);
+}
+
+.tooltiptext .description_yellow {
+  border: 2px black;
+}
+
+.textbox_unknown {
+  margin-top: 1vw;
+  text-align: center;
+}
+
+.textbox_unknown input {
+  background-color: #e9e8e8;
+  border-radius: 4vw;
+  width: 25%;
+  height: 1.2vw;
+  font-size: 0.9vw;
+}
+
+.textbox_unknown button {
+  background-color: var(--goki_orange);
+  border-radius: 4vw;
+  width: 5vw;
+  height: 1.5vw;
+  margin-left: 0.2%;
+  font-size: 0.7vw;
+  cursor: pointer;
+}
+
+.method_container {
+  display: flex;
+  justify-content: center;
+  background-color: var(--goki_orange);
+  border-radius: 2vw;
+  margin-top: 2%;
+}
+
+.no_method_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #fbc79d;
+  border-radius: 3vw;
+  margin-bottom: 5vw;
+  font-size: 1.3vw;
+}
+
+.method_container .method_object {
+  width: 25%;
+  background-color: #f0f0f0;
+  padding: 1vw;
+  border: 0.25vw solid #ddd;
+  border-radius: 2vw;
+  margin: 1vw;
+  font-size: 1vw;
+  font-family: monospace;
+}
+
+.method_title {
+  margin: auto;
+  text-align: center;
+  font-size: 1.3vw;
+  font-weight: bold;
+  text-decoration: underline;
+  color: var(--goki_darkgreen);
+}
+
+.recommendation_container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background-color: var(--goki_darkgreen);
+  border-radius: 3vw;
+  margin-top: 2%;
+  margin-bottom: 3vw;
+}
+
+.recommendation_container .recommendation_object {
+  background-color: #ffffff;
+  padding: 1vw;
+  height: fit-content;
+  border: 0.2vw solid #ddd;
+  border-radius: 3vw;
+  margin: 1vw;
+  font-size: 1.1vw;
+  font-family: monospace;
+}
+
+.model_card_title, .example_card_title {
+  text-align: center;
+  color: rgb(181, 255, 255);
+  font-size: 1.5vw;
+}
+
+.model_card_container {
+  display: grid;
+  background-color: var(--goki_orange);
+  border-radius: 2vw;
+  margin: auto;
+  margin-top: -2vw;
+  width: 90%;
+}
+
+.model_card_container .cards {
+  display: flex;
+  justify-content: center;
+  margin: 0.5vw;
+}
+
+.model_card_container .cards .model_card_object {
+  width: 25%;
+  background-color: #ffffff;
+  padding: 1.5vw;
+  border: 0.2vw solid #ddd;
+  border-radius: 2vw;
+  margin: 0.5vw;
+  font-size: 1vw;
+  height:fit-content;
+}
+
+.example_card_container {
+  display: grid;
+  background-color: var(--goki_darkgreen);
+  border-radius: 2vw;
+  margin: auto;
+  margin-top: -2vw;
+  width: 90%;
+}
+
+.example_card_container .cards {
+  display: flex;
+  justify-content: center;
+  margin: 0.5vw;
+}
+
+.example_card_container .cards .model_card_object {
+  width: 33%;
+  height: fit-content;
+  background-color: #ffffff;
+  padding: 1vw;
+  border: 0.2vw solid #ddd;
+  border-radius: 2vw;
+  margin: 0.5vw;
+  font-size: 1vw;
+  text-align: center;
+}
+
+.example_card_info img {
+  margin: auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  height: 15vw;
+}
+
+.method_info {
+  margin: auto;
+  text-align: center;
+  font-size: 1vw;
+  font-weight: bold;
+}
+
+.qr_image {
+  height: 8vw;
+  border-radius: 1vw;
+}
+
+.mod_selection_button {
+  border-radius: 10px;
+  background-color: var(--goki_orange);
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  font-size: 1.4vw;
+  padding: 1.5%;
+  width: 17%;
+  cursor: pointer;
+  margin-bottom: 3%;
+  margin-left: 1%;
+}
+
+.mod_selection_part {
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+  margin-top: 10%;
+}
+
+#model_card_model_explanation {
+  display: block;
+  margin: auto;
+  width: 35vw;
+  margin-top: 3vw;
+}
+
+#about_model_cards {
+  display: block;
+  margin: auto;
+  margin-top: 6vw;
+  width: 25vw;
+}
+
+.tutorial_question_part {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 2%;
+  margin-left: 10%;
+  border: var(--goki_darkgreen) solid 0.4vw;
+  padding: 0.7vw;
+  border-radius: 1vw;
+}
+
+.tutorial_question_part .titles {
+  font-size: 1vw;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+
+.tutorial_question_part .question {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  font-size: 1vw;
+  margin-right: 2%;
+}
+
+.tutorial_checkbox {
+  width: 1.3vw;
+  height: 1.3vw;
+  margin-top: 2%;
+  margin: auto;
+}
+
+.model_card_text {
+  font-family: monospace;
+  color: var(--goki_darkgreen);
+}
+
+.example_card_text {
+  font-family: monospace;
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 1.2vw;
+  color: var(--goki_darkgreen);
+}
+
+.example_card_text2 {
+  font-family: monospace;
+  font-size: 1vw;
+  color: var(--goki_darkgreen);
+  padding: 2%;
+}
+
+.example_card_info {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  font-size: 1vw;
+  margin-top: 2%;
+  text-align: left;
+}
+
+.tutorial_question_part input[type="checkbox"] {
+  accent-color: var(--goki_darkgreen);
+}

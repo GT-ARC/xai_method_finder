@@ -1,0 +1,554 @@
+[
+    {
+        "title": "SHAP",
+        "features": [
+            {
+                "type": "data_type",
+                "tag": "images"
+            },
+            {
+                "type": "data_type",
+                "tag": "tabular"
+            },
+            {
+                "type": "data_type",
+                "tag": "any"
+            },
+            {
+                "type": "model_type",
+                "tag": "agnostic"
+            },
+            {
+                "type": "task",
+                "tag": "regression"
+            },
+            {
+                "type": "task",
+                "tag": "classification"
+            },
+            {
+                "type": "goal",
+                "tag": "evaluate"
+            },
+            {
+                "type": "goal",
+                "tag": "learn"
+            },
+            {
+                "type": "explanation_scope",
+                "tag": "local"
+            },
+            {
+                "type": "explanation_type",
+                "tag": "feature_importance"
+            },
+            {
+                "type": "explanation_type",
+                "tag": "heatmap"
+            }
+        ],
+        "qr_code": "./img/qr_codes/shap.svg"
+    },
+    {
+        "title": "LIME",
+        "features": [
+            {
+                "type": "data_type",
+                "tag": "images"
+            },
+            {
+                "type": "data_type",
+                "tag": "tabular"
+            },
+            {
+                "type": "data_type",
+                "tag": "text"
+            },
+            {
+                "type": "model_type",
+                "tag": "agnostic"
+            },
+            {
+                "type": "task",
+                "tag": "regression"
+            },
+            {
+                "type": "task",
+                "tag": "classification"
+            },
+            {
+                "type": "goal",
+                "tag": "improve"
+            },
+            {
+                "type": "goal",
+                "tag": "trust"
+            },
+            {
+                "type": "explanation_scope",
+                "tag": "local"
+            },
+            {
+                "type": "explanation_type",
+                "tag": "feature_importance"
+            },
+            {
+                "type": "explanation_type",
+                "tag": "localization"
+            }
+        ],
+        "qr_code": "./img/qr_codes/lime.svg"
+    },
+    {
+        "title": "LRP",
+        "features": [
+            {
+                "type": "data_type",
+                "tag": "images"
+            },
+            {
+                "type": "data_type",
+                "tag": "text"
+            },
+            {
+                "type": "model_type",
+                "tag": "mlp"
+            },
+            {
+                "type": "task",
+                "tag": "classification"
+            },
+            {
+                "type": "goal",
+                "tag": "evaluate"
+            },
+            {
+                "type": "goal",
+                "tag": "learn"
+            },
+            {
+                "type": "explanation_scope",
+                "tag": "local"
+            },
+            {
+                "type": "explanation_type",
+                "tag": "localization"
+            },
+            {
+                "type": "explanation_type",
+                "tag": "heatmap"
+            }
+        ],
+        "qr_code": "./img/qr_codes/lrp.svg"
+    },
+    {
+        "title": "CEM",
+        "features": [
+            {
+                "type": "data_type",
+                "tag": "images"
+            },
+            {
+                "type": "data_type",
+                "tag": "tabular"
+            },
+            {
+                "type": "model_type",
+                "tag": "mlp"
+            },
+            {
+                "type": "task",
+                "tag": "classification"
+            },
+            {
+                "type": "goal",
+                "tag": "learn"
+            },
+            {
+                "type": "goal",
+                "tag": "trust"
+            },
+            {
+                "type": "explanation_scope",
+                "tag": "counterfactual"
+            },
+            {
+                "type": "explanation_type",
+                "tag": "localization"
+            }
+        ],
+        "qr_code": "./img/qr_codes/cem.svg"
+    },
+    {
+        "title": "ANCHORS",
+        "features": [
+            {
+                "type": "data_type",
+                "tag": "images"
+            },
+            {
+                "type": "data_type",
+                "tag": "tabular"
+            },
+            {
+                "type": "data_type",
+                "tag": "text"
+            },
+            {
+                "type": "model_type",
+                "tag": "agnostic"
+            },
+            {
+                "type": "task",
+                "tag": "classification"
+            },
+            {
+                "type": "goal",
+                "tag": "legitimate"
+            },
+            {
+                "type": "goal",
+                "tag": "evaluate"
+            },
+            {
+                "type": "goal",
+                "tag": "learn"
+            },
+            {
+                "type": "goal",
+                "tag": "trust"
+            },
+            {
+                "type": "explanation_scope",
+                "tag": "counterfactual"
+            },
+            {
+                "type": "explanation_type",
+                "tag": "decision_rule"
+            },
+            {
+                "type": "explanation_type",
+                "tag": "localization"
+            }
+        ],
+        "qr_code": "./img/qr_codes/anchors.svg"
+    },
+    {
+        "title": "DICE",
+        "features": [
+            {
+                "type": "data_type",
+                "tag": "tabular"
+            },
+            {
+                "type": "model_type",
+                "tag": "agnostic"
+            },
+            {
+                "type": "task",
+                "tag": "classification"
+            },
+            {
+                "type": "goal",
+                "tag": "learn"
+            },
+            {
+                "type": "goal",
+                "tag": "trust"
+            },
+            {
+                "type": "explanation_scope",
+                "tag": "counterfactual"
+            },
+            {
+                "type": "explanation_type",
+                "tag": "decision_rule"
+            },
+            {
+                "type": "explanation_type",
+                "tag": "localization"
+            }
+        ],
+        "qr_code": "./img/qr_codes/dice.svg"
+    },
+    {
+        "title": "SAGE",
+        "features": [
+            {
+                "type": "data_type",
+                "tag": "images"
+            },
+            {
+                "type": "data_type",
+                "tag": "tabular"
+            },
+            {
+                "type": "model_type",
+                "tag": "agnostic"
+            },
+            {
+                "type": "task",
+                "tag": "regression"
+            },
+            {
+                "type": "task",
+                "tag": "classification"
+            },
+            {
+                "type": "goal",
+                "tag": "legitimate"
+            },
+            {
+                "type": "goal",
+                "tag": "learn"
+            },
+            {
+                "type": "goal",
+                "tag": "trust"
+            },
+            {
+                "type": "explanation_scope",
+                "tag": "global"
+            },
+            {
+                "type": "explanation_type",
+                "tag": "feature_importance"
+            }
+        ],
+        "qr_code": "./img/qr_codes/sage.svg"
+    },
+    {
+        "title": "GradCAM",
+        "features": [
+            {
+                "type": "data_type",
+                "tag": "images"
+            },
+            {
+                "type": "data_type",
+                "tag": "text"
+            },
+            {
+                "type": "model_type",
+                "tag": "cnn"
+            },
+            {
+                "type": "task",
+                "tag": "classification"
+            },
+            {
+                "type": "goal",
+                "tag": "improve"
+            },
+            {
+                "type": "goal",
+                "tag": "evaluate"
+            },
+            {
+                "type": "explanation_scope",
+                "tag": "local"
+            },
+            {
+                "type": "explanation_type",
+                "tag": "heatmap"
+            },
+            {
+                "type": "explanation_type",
+                "tag": "localization"
+            }
+        ],
+        "qr_code": "./img/qr_codes/grad_cam.svg"
+    },
+    {
+        "title": "DeepLIFT",
+        "features": [
+            {
+                "type": "data_type",
+                "tag": "images"
+            },
+            {
+                "type": "data_type",
+                "tag": "tabular"
+            },
+            {
+                "type": "model_type",
+                "tag": "mlp"
+            },
+            {
+                "type": "task",
+                "tag": "regression"
+            },
+            {
+                "type": "task",
+                "tag": "classification"
+            },
+            {
+                "type": "goal",
+                "tag": "improve"
+            },
+            {
+                "type": "goal",
+                "tag": "evaluate"
+            },
+            {
+                "type": "explanation_scope",
+                "tag": "local"
+            },
+            {
+                "type": "explanation_type",
+                "tag": "heatmap"
+            },
+            {
+                "type": "explanation_type",
+                "tag": "localization"
+            }
+        ],
+        "qr_code": "./img/qr_codes/deep_lift.svg"
+    },
+    {
+        "title": "ProtoCF",
+        "features": [
+            {
+                "type": "data_type",
+                "tag": "images"
+            },
+            {
+                "type": "data_type",
+                "tag": "tabular"
+            },
+            {
+                "type": "model_type",
+                "tag": "agnostic"
+            },
+            {
+                "type": "task",
+                "tag": "regression"
+            },
+            {
+                "type": "task",
+                "tag": "classification"
+            },
+            {
+                "type": "goal",
+                "tag": "legitimate"
+            },
+            {
+                "type": "goal",
+                "tag": "learn"
+            },
+            {
+                "type": "goal",
+                "tag": "trust"
+            },
+            {
+                "type": "explanation_scope",
+                "tag": "counterfactual"
+            },
+            {
+                "type": "explanation_type",
+                "tag": "localization"
+            }
+        ],
+        "qr_code": "./img/qr_codes/proto_cf.svg"
+    },
+    {
+        "title": "ProfWeight",
+        "features": [
+            {
+                "type": "data_type",
+                "tag": "images"
+            },
+            {
+                "type": "data_type",
+                "tag": "tabular"
+            },
+            {
+                "type": "data_type",
+                "tag": "any"
+            },
+            {
+                "type": "model_type",
+                "tag": "mlp"
+            },
+            {
+                "type": "task",
+                "tag": "regression"
+            },
+            {
+                "type": "task",
+                "tag": "classification"
+            },
+            {
+                "type": "goal",
+                "tag": "learn"
+            },
+            {
+                "type": "goal",
+                "tag": "evaluate"
+            },
+            {
+                "type": "explanation_scope",
+                "tag": "global"
+            },
+            {
+                "type": "explanation_type",
+                "tag": "feature_importance"
+            },
+            {
+                "type": "explanation_type",
+                "tag": "localization"
+            }
+        ],
+        "qr_code": "./img/qr_codes/prof_weight.svg"
+    },
+    {
+        "title": "ProtoDash",
+        "features": [
+            {
+                "type": "data_type",
+                "tag": "images"
+            },
+            {
+                "type": "data_type",
+                "tag": "tabular"
+            },
+            {
+                "type": "data_type",
+                "tag": "text"
+            },
+            {
+                "type": "model_type",
+                "tag": "mlp"
+            },
+            {
+                "type": "task",
+                "tag": "regression"
+            },
+            {
+                "type": "task",
+                "tag": "classification"
+            },
+            {
+                "type": "goal",
+                "tag": "evaluate"
+            },
+            {
+                "type": "explanation_scope",
+                "tag": "local"
+            },
+            {
+                "type": "explanation_scope",
+                "tag": "counterfactual"
+            },
+            {
+                "type": "explanation_type",
+                "tag": "decision_rule"
+            },
+            {
+                "type": "explanation_type",
+                "tag": "localization"
+            }
+        ],
+        "qr_code": "./img/qr_codes/proto_dash.svg"
+    }
+]
