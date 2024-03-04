@@ -240,7 +240,6 @@ const MethodFinder = (props) => {
 
   const [validMethods, setValidMethods] = useState(ModelData.map(method => method));
 
-
   useEffect(() => {
     const determineMethod = () => {
       const newValidMethods = ModelData.filter(method => checkMethod(method)).map(method => method);
@@ -248,17 +247,19 @@ const MethodFinder = (props) => {
     };
 
     const checkMethod = (method) => {
-      let isGoalsValid = false;
-      let isTasksValid = false;
-      let isModelsValid = false;
-      let isDataValid = false;
+      let isGoalsValid = true;
+      let isTasksValid = true;
+      let isModelsValid = true;
+      let isDataValid = true;
 
       // goals
-      for (let i = 0; i < explanatoryGoals.length; i++) {
-        isGoalsValid = method.features.some(goal => goal.type === "goal" && goal.tag === explanatoryGoals[i]);
-        if (!isGoalsValid) break;
+      if (!explanatoryGoals.includes("unknown")) {
+        for (let i = 0; i < explanatoryGoals.length; i++) {
+          isGoalsValid = method.features.some(goal => goal.type === "goal" && goal.tag === explanatoryGoals[i]);
+          if (!isGoalsValid) break;
+        }
       }
-
+      
       // problems - tasks
       for (let i = 0; i < problemType.length; i++) {
         isTasksValid = method.features.some(task => task.type === "task" && task.tag === problemType[i]);
@@ -274,7 +275,6 @@ const MethodFinder = (props) => {
           isDataValid = method.features.some(data_type => data_type.type === "data_type" && data_type.tag === dataType[i]);
           if (!isDataValid) break;
         }
-
       }
 
       // model 
@@ -286,24 +286,19 @@ const MethodFinder = (props) => {
       }
 
       let isGlobal = true, isLocal = true, isCounterfactual = true;
-      let isExplanationScopeSelected = false;
-
 
       // explanation scope
       if (selectedQuestions['global']) {
-        isExplanationScopeSelected = true;
         isGlobal = method.features.some(explanation_scope => explanation_scope.type === "explanation_scope" && explanation_scope.tag === "global");
       }
       if (selectedQuestions['local']) {
-        isExplanationScopeSelected = true;
         isLocal = method.features.some(explanation_scope => explanation_scope.type === "explanation_scope" && explanation_scope.tag === "local");
       }
       if (selectedQuestions['counterfactual']) {
-        isExplanationScopeSelected = true;
         isCounterfactual = method.features.some(explanation_scope => explanation_scope.type === "explanation_scope" && explanation_scope.tag === "counterfactual");
       }
 
-        return isGoalsValid && isTasksValid && isModelsValid && isDataValid && (isExplanationScopeSelected && isGlobal && isLocal && isCounterfactual);
+        return isGoalsValid && isTasksValid && isModelsValid && isDataValid && (isGlobal && isLocal && isCounterfactual);
     };
 
     determineMethod();
@@ -509,6 +504,7 @@ const MethodFinder = (props) => {
         </div>
 
             {currentIndex === 12 && validMethods.length > 0 && !validMethods.includes("unknown") && (
+            <div className="method_slider_container">
               <div className="method_container">
                 {validMethods.map((method) => (
                   <div key={method} className="method_object">
@@ -522,6 +518,7 @@ const MethodFinder = (props) => {
                   </div>
                 ))}
               </div>
+            </div>
             )}
 
             {currentIndex === 13 && targetGroup.length > 0 && !targetGroup.includes("unknown") && (

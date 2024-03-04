@@ -467,12 +467,33 @@ body {
   cursor: pointer;
 }
 
+.method_slider_container {
+  background-color: var(--goki_orange);
+  padding-left: 1vw;
+  padding-right: 1vw;
+  border-radius: 2vw;
+}
+
 .method_container {
   display: flex;
-  justify-content: center;
+  overflow-x: auto;
+  white-space: nowrap;
   background-color: var(--goki_orange);
   border-radius: 2vw;
-  margin-top: 2%;
+  padding: 0.5vw;
+}
+
+.method_container::-webkit-scrollbar {
+  opacity: 0;
+}
+
+.method_container::-webkit-scrollbar-thumb {
+  background: var(--goki_darkgreen);
+  border-radius: 3vw;
+}
+
+.method_container::-webkit-scrollbar-thumb:hover {
+  background: lightblue;
 }
 
 .no_method_container {
@@ -486,13 +507,12 @@ body {
 }
 
 .method_container .method_object {
-  width: 25%;
   background-color: #f0f0f0;
   padding: 1vw;
   border: 0.25vw solid #ddd;
   border-radius: 2vw;
   margin: 1vw;
-  font-size: 1vw;
+  font-size: 1vw; 
   font-family: monospace;
 }
 
