@@ -368,7 +368,7 @@ body {
 .buttons_method_finder {
   align-items: center;
   margin-top: 7%;
-  margin-bottom: 10%;
+  margin-bottom: 12%;
   height: 17vw;
 }
 
@@ -382,6 +382,7 @@ body {
 
 .slider_method_finder {
   margin-top: 8%;
+  margin-bottom: 3%;
 }
 
 .slider_method_finder .text {
@@ -495,6 +496,38 @@ body {
   background: lightblue;
 }
 
+.footer_method_slider_container {
+  background-color: var(--goki_orange);
+  padding-left: 1vw;
+  padding-right: 1vw;
+  border-radius: 2vw;
+  height: 3.5vw;
+  justify-content: center;
+}
+
+.footer_method_container {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  border-radius: 2vw;
+  padding: 0.2vw;
+  margin-top: 3%;
+  justify-content: center;
+}
+
+.footer_method_container::-webkit-scrollbar {
+  opacity: 0;
+}
+
+.footer_method_container::-webkit-scrollbar-thumb {
+  background: var(--goki_darkgreen);
+  border-radius: 3vw;
+}
+
+.footer_method_container::-webkit-scrollbar-thumb:hover {
+  background: lightblue;
+}
+
 .no_method_container {
   display: flex;
   flex-direction: row;
@@ -515,12 +548,29 @@ body {
   font-family: monospace;
 }
 
-.method_title {
+.footer_method_container .method_object {
+  background-color: #f0f0f0;
+  padding: 0.5vw;
+  border: 0.15vw solid #ddd;
+  border-radius: 1.5vw;
+  margin: 0.5vw;
+  font-family: monospace;
+}
+
+.method_container .method_title {
   margin: auto;
   text-align: center;
   font-size: 1.3vw;
   font-weight: bold;
   text-decoration: underline;
+  color: var(--goki_darkgreen);
+}
+
+.footer_method_container .method_title {
+  margin: auto;
+  text-align: center;
+  font-size: 0.9vw;
+  font-weight: bold;
   color: var(--goki_darkgreen);
 }
 

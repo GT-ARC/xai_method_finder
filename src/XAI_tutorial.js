@@ -98,7 +98,7 @@ const Tutorial = (props) => {
     <div>
       <h1 className="page_title">{title}</h1>
 
-      <div className={(currentIndex === 14 || currentIndex === 15 )? '' : 'general_container'}>
+      <div className='general_container'>
         <div class="title_and_description">
           <p dangerouslySetInnerHTML={{ __html: description }} class="description"/>
           {questionTableExists && elements.map(

@@ -382,6 +382,19 @@ const MethodFinder = (props) => {
 
   return (
     <div>
+
+      {currentIndex !== 0 && currentIndex !== 1 && currentIndex !== 2 && currentIndex !== 3 && currentIndex !== 12 && currentIndex !== 13 && (
+        <div className="footer_method_slider_container">
+          <div className="footer_method_container">
+            {validMethods.map((method) => (
+              <div key={method} className="method_object">
+                <h3 className="method_title">{method.title}</h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
       <h1 className="page_title">{title}</h1>
 
       <div className={(currentIndex === 12 || currentIndex === 13 )? 'output_container' : 'general_container'}>
@@ -540,9 +553,6 @@ const MethodFinder = (props) => {
               </>
             )}
       </div>
-
-      <p>{validMethods.length}</p>
-
       </div>
 
       <div
