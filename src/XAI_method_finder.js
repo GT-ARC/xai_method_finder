@@ -81,7 +81,6 @@ const MethodFinder = (props) => {
   // for step 7, problem type
   // for step 8, model type
   const handleButtonChange = (id, buttonIndex) => {
-    // nullTagIndex refers to index of the "unknown" button index.
 
     if (selectedButtons.includes("" + buttonIndex + " " + currentIndex)) {
 
@@ -252,6 +251,7 @@ const MethodFinder = (props) => {
       let isModelsValid = true;
       let isDataValid = true;
 
+      // For now, selecting the "unknown" button is assumed to have no effect.
       // goals
       if (!explanatoryGoals.includes("unknown")) {
         for (let i = 0; i < explanatoryGoals.length; i++) {
@@ -261,28 +261,34 @@ const MethodFinder = (props) => {
       }
       
       // problems - tasks
-      for (let i = 0; i < problemType.length; i++) {
-        isTasksValid = method.features.some(task => task.type === "task" && task.tag === problemType[i]);
-        if (!isTasksValid) break;
+      if (!problemType.includes("unknown")) {
+        for (let i = 0; i < problemType.length; i++) {
+          isTasksValid = method.features.some(task => task.type === "task" && task.tag === problemType[i]);
+          if (!isTasksValid) break;
+        }
       }
 
-      // data 
-      for (let i = 0; i < dataType.length; i++) {
-        if (method.features.some(data_type => data_type.type === "data_type" && data_type.tag === "any") &&
-            dataType.some(tag => tag !== "unknown")) 
-        { isDataValid = true; }
-        else {  
-          isDataValid = method.features.some(data_type => data_type.type === "data_type" && data_type.tag === dataType[i]);
-          if (!isDataValid) break;
+      // data
+      if (!dataType.includes("unknown")) {
+        for (let i = 0; i < dataType.length; i++) {
+          if (method.features.some(data_type => data_type.type === "data_type" && data_type.tag === "any") &&
+              dataType.some(tag => tag !== "unknown")) 
+          { isDataValid = true; }
+          else {  
+            isDataValid = method.features.some(data_type => data_type.type === "data_type" && data_type.tag === dataType[i]);
+            if (!isDataValid) break;
+          }
         }
       }
 
       // model 
-      // Agnostic was assumed to include also CNN and MLP.
-      for (let i = 0; i < modelType.length; i++) {
-        isModelsValid = method.features.some(model_type => model_type.type === "model_type" && 
-                                            (modelType[i] !== "unknown" && (model_type.tag === modelType[i] || model_type.tag === "agnostic")));
-        if (!isModelsValid) break;
+      // Agnostic was assumed to include CNN and MLP.
+      if (!modelType.includes("unknown")) {
+        for (let i = 0; i < modelType.length; i++) {
+          isModelsValid = method.features.some(model_type => model_type.type === "model_type" && 
+                                              (modelType[i] !== "unknown" && (model_type.tag === modelType[i] || model_type.tag === "agnostic")));
+          if (!isModelsValid) break;
+        }
       }
 
       let isGlobal = true, isLocal = true, isCounterfactual = true;
@@ -534,6 +540,8 @@ const MethodFinder = (props) => {
               </>
             )}
       </div>
+
+      <p>{validMethods.length}</p>
 
       </div>
 

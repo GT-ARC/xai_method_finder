@@ -98,7 +98,7 @@ const Tutorial = (props) => {
     <div>
       <h1 className="page_title">{title}</h1>
 
-      <div className={(currentIndex === 13 || currentIndex === 14 )? '' : 'general_container'}>
+      <div className={(currentIndex === 14 || currentIndex === 15 )? '' : 'general_container'}>
         <div class="title_and_description">
           <p dangerouslySetInnerHTML={{ __html: description }} class="description"/>
           {questionTableExists && elements.map(
@@ -181,7 +181,7 @@ const Tutorial = (props) => {
       </div>
 
       <div className="output_parts">
-      {currentIndex === 13 && filteredExplanations.length > 0 && (
+      {currentIndex === 14 && filteredExplanations.length > 0 && (
           <>
             <div className="model_card_container">
               <p className="model_card_title"><b>MODEL CARD</b></p>
@@ -240,7 +240,7 @@ const Tutorial = (props) => {
           </>
         )}
 
-        {currentIndex === 14 && (selectedQuestions.global || selectedQuestions.local || selectedQuestions.counterfactual) && (
+        {currentIndex === 15 && (selectedQuestions.global || selectedQuestions.local || selectedQuestions.counterfactual) && (
           <div style={{display: "flex", justifyContent: "center"}}>
             <div className="example_card_container">
               <p className="example_card_title"><b>BEISPIELE</b></p>
@@ -303,18 +303,3 @@ const Tutorial = (props) => {
 };
 
 export default Tutorial;
-
-/*
-      <p><b>Selected Options:</b></p>
-      <p>Selected Opt. length: {selectedOptions.length}</p>
-      {selectedOptions.map((index) => (
-        <>
-          <p>{index}</p>
-        </>
-      ))}
-      <p><b>Texts:</b></p>
-      <p>Filtered Exp. length: {filteredExplanations.length}</p>
-      {filteredExplanations.map((item) => (
-          <p>{item.text}</p>
-      ))}
-*/

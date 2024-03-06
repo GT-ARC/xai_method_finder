@@ -76,14 +76,14 @@ body {
   grid-template-columns: 1fr 1fr;
   width: 95%;
   margin: auto;
-  height: 23vw;
+  height: fit-content;
 }
 
 .output_container {
   width: 95%;
   margin: auto;
   margin-top: -2vw;
-  height: 27vw;
+  height: fit-content;
 }
 
 .title_and_description {
@@ -109,7 +109,7 @@ body {
 
 .button {
   height: 8vw;
-  width: 8vw;
+  width: 8.25vw;
   outline: none;
   padding: 0.5vw;
   background-color: #ffffff;
@@ -122,7 +122,7 @@ body {
 
 .selected {
   height: 8.5vw;
-  width: 8.5vw;
+  width: 8.75vw;
   object-fit: cover;
   padding: 0.5vw;
   background-color: #ffffff;
@@ -369,7 +369,7 @@ body {
   align-items: center;
   margin-top: 7%;
   margin-bottom: 10%;
-  height: 10vw;
+  height: 17vw;
 }
 
 .buttons_method_finder .text {
@@ -478,7 +478,6 @@ body {
   display: flex;
   overflow-x: auto;
   white-space: nowrap;
-  background-color: var(--goki_orange);
   border-radius: 2vw;
   padding: 0.5vw;
 }

@@ -53,7 +53,7 @@
             "description": "Die Zielgruppe ist Validator der KI-Anwendung."
           },
           {
-            "title": "Unbekannt/Nichts davon",
+            "title": "Unbekannt/Anderes",
             "tag": "unknown",
             "index": 5,
             "description": ""
@@ -114,7 +114,7 @@
             "description": "Die Erklärung soll die Zielgruppe etwas über die KI-Anwendung lernen lassen."
           },
           {
-            "title": "Unbekannt/Nichts davon",
+            "title": "Unbekannt/Anderes",
             "tag": "unknown",
             "index": 5,
             "description": ""
@@ -151,7 +151,7 @@
             "description": "Die KI-Anwendung verarbeitet tabellarische Daten."
           },
           {
-            "title": "Unbekannt/Nichts davon",
+            "title": "Unbekannt/Anderes",
             "tag": "unknown",
             "index": 3,
             "description": "<b>Sie nutzen einen anderen Datentyp oder wissen nicht genau welchen Datentyp sie verwenden? Kein Problem! Bitte erklären Sie uns in Ihren Worten was Sie für Daten nutzen und wir finden die geeignete Methode für Sie!</b>"
@@ -188,7 +188,7 @@
             "description": "Es wird verwendet, um neue Datenmuster zu erzeugen. Durch die Modellierung der Datenverteilung können Datenmuster erzeugt werden, die dem ursprünglichen Datensatz ähnlich sind, sich aber von ihm unterscheiden."
           },
           {
-            "title": "Unbekannt/Nichts davon",
+            "title": "Unbekannt/Anderes",
             "tag": "unknown",
             "index": 3,
             "description": "<b>Ihre KI Anwendung löst eine andere Aufgabe oder Sie wissen nicht genau welche Aufgabe Ihr KI Anwendung löst? Kein Problem! Bitte erklären Sie uns in Ihren Worten was genau Ihr KI Anwendung macht und wir finden eine geeignete Methode für Sie!</b>"
@@ -219,7 +219,7 @@
             "description": "Es handelt sich um eine Art künstliches neuronales Netz, das zur Verarbeitung von Textdaten verwendet wird. Es arbeitet, indem es den Kontext des Textes versteht und diesen Kontext nutzt, um den Text aussagekräftiger zu machen."
           },
           {
-            "title": "Unbekannt/Nichts davon",
+            "title": "Unbekannt/Anderes",
             "tag": "unknown",
             "index": 2,
             "description": "<b>Sue nutzen einen anderen Modelltyp oder Sie sind sich nicht ganz sicher welchen Modelltyp Sie nutzen? Kein Problem! Bitte beschreiben Sie uns in Ihren eigenen Worten welchen KI Algorithmus sie verwenden und wir finden die passende Methode für Sie</b>"
@@ -298,7 +298,8 @@
         "target_group": [
           { "tag": "user" },
           { "tag": "stakeholder"},
-          { "tag": "owner"}
+          { "tag": "owner"},
+          { "tag": "validator"}
         ],
         "definition": [
           {

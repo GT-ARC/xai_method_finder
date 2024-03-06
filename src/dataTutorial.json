@@ -14,6 +14,13 @@
     ]
   },
   {
+    "title": "Die App ToolFinder",
+    "description": "Damit die Erklärungen an einem einfachen Beispiel dargestellt werden können haben wir uns eine fiktive App für Handwerker:innen und ambitionierte Heimwerker:innen ausgedacht. Mit der App ist es möglich Fotos von Werkzeugen und Baumaterialien zu machen und die App gibt dem Nutzenden Tipps was man mit den Objekten aus den Fotos bauen kann und wie man die Werkzeuge dafür nutzt.",
+    "elements": [
+      { "type": "image", "id": "craftsman", "target": "/img/craftsman.png" } 
+    ]
+  },
+  {
     "title": "Über Model Cards",
     "description": "Eine Möglichkeit KI-Anwendungen zu erklären, sind sogenannte <b>“Model Cards”. Eine Model Card ist wie ein Info-Blatt über eine KI-Anwendung</b>. Auf diesem Blatt stehen technische Details, die normalerweise schwer zu verstehen sind. Du könntest es mit den Nährwertangaben auf Lebensmitteln vergleichen. Genau wie diese Angaben Dir sagen, was in einem Lebensmittel drin ist, sagt Dir eine Model Card, wie die KI funktioniert und was sie kann. </br></br><b>Im Folgenden wirst du nun durch die Kategorien \"1. Anwendungsbereich, 2. Daten, 3. Leistung und 4. Ethik\" geleitet. Für jede Kategorie kannst du verschiedene Fragen beantworten, die am Ende den Inhalt deiner “Nährwertangabe” bestimmen</b>.",
     "elements": [
@@ -297,13 +304,6 @@
         "tag": "counterfactual",
         "explanation": "Bei Kontrafaktische Erklärungen wird die Frage beantwortert was sich verändern muss um eine andere Klassifizierung zu erhalten. Im Beispiel sieht man, dass sich der Hammerkopf ändern muss um anders klassifiziert zu werden. Dadurch bekommt man ein Gefühl auf welche Merkmale das Modell im Allgemeinen besonders acht gibt."
       }
-    ]
-  },
-  {
-    "title": "Die App ToolFinder",
-    "description": "Damit die Erklärungen an einem einfachen Beispiel dargestellt werden können haben wir uns eine fiktive App für Handwerker:innen und ambitionierte Heimwerker:innen ausgedacht. Mit der App ist es möglich Fotos von Werkzeugen und Baumaterialien zu machen und die App gibt dem Nutzenden Tipps was man mit den Objekten aus den Fotos bauen kann und wie man die Werkzeuge dafür nutzt.",
-    "elements": [
-      { "type": "image", "id": "craftsman", "target": "/img/craftsman.png" } 
     ]
   }
 ]
