@@ -82,33 +82,41 @@ const MethodFinder = (props) => {
   // for step 8, model type
   const handleButtonChange = (id, buttonIndex) => {
 
-    if (selectedButtons.includes("" + buttonIndex + " " + currentIndex)) {
+    const elementExists = selectedButtons.some(item => (
+      item[0] === currentIndex && item[1] === buttonIndex
+    ));
 
-      setSelectedButtons(selectedButtons.filter((index) => index !== "" + buttonIndex + " " + currentIndex));
-    } else {
+    const newOption = [currentIndex, buttonIndex];
+
+    if (elementExists) { // remove from list
+      const updatedOptions = selectedButtons.filter(item => (
+        item[0] !== currentIndex || item[1] !== buttonIndex
+      ));
+      setSelectedButtons(updatedOptions);
+    }
+    else {  // add to list
+
       if (id === "unknown") {
         if (!isAnyButtonSelected)
-          setSelectedButtons([...selectedButtons, "" + buttonIndex + " " + currentIndex]);
+          setSelectedButtons(prevOptions => [...prevOptions, newOption]);
       }
       else {
         if (!isUnknownOptionSelected) {  // "unknown" is not selected
 
           if (currentIndex === 2) { // target group
             if (id !== "developer" && !targetGroup.includes("developer")) { // if id is different from "developer" and target group does not include "developer"
-              setSelectedButtons([...selectedButtons, "" + buttonIndex + " " + currentIndex]);
+              setSelectedButtons(prevOptions => [...prevOptions, newOption]);
             }
             else if (id === "developer" && targetGroup.length === 0) { // if id is "developer" and target group is empty
-              setSelectedButtons([...selectedButtons, "" + buttonIndex + " " + currentIndex]);
+              setSelectedButtons(prevOptions => [...prevOptions, newOption]);
             }
           }
           else {
-            setSelectedButtons([...selectedButtons, "" + buttonIndex + " " + currentIndex]);
+            setSelectedButtons(prevOptions => [...prevOptions, newOption]);
           }
         }
-
       }
     }
-
 
     if (currentIndex === 2) {
       if (targetGroup.includes(id)) {   // remove previous selection
@@ -436,7 +444,7 @@ const MethodFinder = (props) => {
                   <div className="icons">
                     {item1.options.map((item2) => (
                         <button
-                          className={selectedButtons.includes("" + item2.index + " " + currentIndex) ? 'selected' : 'button'}
+                          className={selectedButtons.some(item => (item[0] === currentIndex && item[1] === item2.index)) ? 'selected' : 'button'}
                           onClick={() => handleButtonChange(item2.tag, item2.index)}
                           onMouseEnter={(e) => handleMouseEnter(e, item2.index)}
                           onMouseLeave={handleMouseLeave}
