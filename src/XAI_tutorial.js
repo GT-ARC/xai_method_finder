@@ -76,7 +76,7 @@ const Tutorial = (props) => {
     for (let i = 0; i < selectedOptions.length; i++) {
       const option = selectedOptions[i];
 
-      const filteredElement = props.data[13].elements.find((element) => element.tag_index === option[0]);
+      const filteredElement = props.data[14].elements.find((element) => element.tag_index === option[0]);
       if (filteredElement) {
         const filteredExp = filteredElement.explanations.filter((explanation) => explanation.index === option[1]);
 
@@ -249,7 +249,7 @@ const Tutorial = (props) => {
                     <div className="model_card_object">
                       <div className="example_card_text">Global</div>
                         <div className="example_card_info">
-                          <img src={process.env.PUBLIC_URL + props.data[9].elements[1].example_target}/>
+                          <img src={process.env.PUBLIC_URL + props.data[10].elements[1].example_target}/>
                           <div className="example_card_text2">{elements.find(item => item.tag === 'global')?.explanation}</div>
                         </div>
                     </div>
@@ -258,7 +258,7 @@ const Tutorial = (props) => {
                     <div className="model_card_object">
                       <div className="example_card_text">Local</div>
                         <div className="example_card_info">
-                          <img src={process.env.PUBLIC_URL + props.data[10].elements[1].example_target}/>
+                          <img src={process.env.PUBLIC_URL + props.data[11].elements[1].example_target}/>
                           <div className="example_card_text2">{elements.find(item => item.tag === 'local')?.explanation}</div>
                         </div>
                     </div>
@@ -267,7 +267,7 @@ const Tutorial = (props) => {
                     <div className="model_card_object">
                       <div className="example_card_text">Counterfactual</div>
                         <div className="example_card_info">
-                          <img src={process.env.PUBLIC_URL + props.data[11].elements[1].example_target}/>
+                          <img src={process.env.PUBLIC_URL + props.data[12].elements[1].example_target}/>
                           <div className="example_card_text2">{elements.find(item => item.tag === 'counterfactual')?.explanation}</div>
                         </div>
                     </div>
@@ -296,9 +296,8 @@ const Tutorial = (props) => {
           <span>Zurück</span>
         </button>
       </div>
-
+      
     </div>
-
   );
 };
 

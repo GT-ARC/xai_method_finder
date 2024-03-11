@@ -58,10 +58,10 @@ body {
   width: 12vw;
 }
 
-#craftsman {
-  margin: auto;
-  width: 8vw;
-  margin-top: 10%;
+#tool_finder_app_image {
+  width: 35vw;
+  margin-top: 5%;
+  margin-left: 20%;
 }
 
 .div_two_columns {

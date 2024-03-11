@@ -15,9 +15,9 @@
   },
   {
     "title": "Die App ToolFinder",
-    "description": "Damit die Erklärungen an einem einfachen Beispiel dargestellt werden können haben wir uns eine fiktive App für Handwerker:innen und ambitionierte Heimwerker:innen ausgedacht. Mit der App ist es möglich Fotos von Werkzeugen und Baumaterialien zu machen und die App gibt dem Nutzenden Tipps was man mit den Objekten aus den Fotos bauen kann und wie man die Werkzeuge dafür nutzt.",
+    "description": "Die Digitalisierung und KI kann auch für Handwerker: innen eine wichtige Unterstützung im Arbeitsalltag sein. </br></br>So auch unsere fiktive App ToolFinder die wir uns zu demonstrationszwecken für dieses Tutorial ausgedacht haben. Mit ToolFinder werden Handwerker:innen bei den täglichen Arbeiten unterstützt. Auf Basis von Fotos von Werkzeugen und Baumaterialien gibt ToolFinder hilfreiche Tipps, wie z.B. Anwendungsempfehlungen oder Bauanleitungen.",
     "elements": [
-      { "type": "image", "id": "craftsman", "target": "/img/craftsman.png" } 
+      { "type": "image", "id": "tool_finder_app_image", "target": "/img/tool_finder_app_image.png" } 
     ]
   },
   {
