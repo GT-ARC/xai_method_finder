@@ -187,10 +187,10 @@ const Tutorial = (props) => {
               <p className="model_card_title"><b>MODEL CARD</b></p>
                 <div className="cards">
                   
-                  {filteredExplanations.filter(item => item.tag_index === 3).length > 0 && (
+                  {filteredExplanations.filter(item => item.tag_index === 4).length > 0 && (
                     <div className="model_card_object">
                     <p className="description_yellow"><b><u>Anwendungsbereich</u></b></p>
-                      {filteredExplanations.filter(item => item.tag_index === 3).map((item, index) => (
+                      {filteredExplanations.filter(item => item.tag_index === 4).map((item, index) => (
                         <div key={index}>
                           <div className="model_card_text"> • {item.text}</div>
                           <br/>
@@ -199,10 +199,10 @@ const Tutorial = (props) => {
                     </div>
                   )}
                   
-                  {filteredExplanations.filter(item => item.tag_index === 4).length > 0 && (
+                  {filteredExplanations.filter(item => item.tag_index === 5).length > 0 && (
                     <div className="model_card_object">
                     <p className="description_yellow"><b><u>Daten</u></b></p>
-                      {filteredExplanations.filter(item => item.tag_index === 4).map((item, index) => (
+                      {filteredExplanations.filter(item => item.tag_index === 5).map((item, index) => (
                         <div key={index}>
                           <div className="model_card_text"> • {item.text}</div>
                           <br/>
@@ -211,10 +211,10 @@ const Tutorial = (props) => {
                     </div>
                   )}
                   
-                  {filteredExplanations.filter(item => item.tag_index === 5).length > 0 && (
+                  {filteredExplanations.filter(item => item.tag_index === 6).length > 0 && (
                     <div className="model_card_object">
                     <p className="description_yellow"><b><u>Leistung</u></b></p>
-                      {filteredExplanations.filter(item => item.tag_index === 5).map((item, index) => (
+                      {filteredExplanations.filter(item => item.tag_index === 6).map((item, index) => (
                         <div key={index}>
                           <div className="model_card_text"> • {item.text}</div>
                           <br/>
@@ -223,10 +223,10 @@ const Tutorial = (props) => {
                     </div>
                   )}
                   
-                  {filteredExplanations.filter(item => item.tag_index === 6).length > 0 && (
+                  {filteredExplanations.filter(item => item.tag_index === 7).length > 0 && (
                     <div className="model_card_object">
                     <p className="description_yellow"><b><u>Ethik</u></b></p>
-                      {filteredExplanations.filter(item => item.tag_index === 6).map((item, index) => (
+                      {filteredExplanations.filter(item => item.tag_index === 7).map((item, index) => (
                         <div key={index}>
                           <div className="model_card_text"> • {item.text}</div>
                           <br/>
