@@ -47,7 +47,8 @@
                 "tag": "heatmap"
             }
         ],
-        "qr_code": "/img/qr_codes/shap.svg"
+        "qr_code": "/img/qr_codes/shap.svg",
+        "qr_url": "https://proceedings.neurips.cc/paper/2017/file/8a20a8621978632d76c43dfd28b67767-Paper.pdf"
     },
     {
         "title": "LIME",
@@ -97,7 +98,8 @@
                 "tag": "localization"
             }
         ],
-        "qr_code": "/img/qr_codes/lime.svg"
+        "qr_code": "/img/qr_codes/lime.svg",
+        "qr_url": "https://dl.acm.org/doi/pdf/10.1145/2939672.2939778"
     },
     {
         "title": "LRP",
@@ -139,7 +141,8 @@
                 "tag": "heatmap"
             }
         ],
-        "qr_code": "/img/qr_codes/lrp.svg"
+        "qr_code": "/img/qr_codes/lrp.svg",
+        "qr_url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0130140&type=printable"
     },
     {
         "title": "CEM",
@@ -177,7 +180,8 @@
                 "tag": "localization"
             }
         ],
-        "qr_code": "/img/qr_codes/cem.svg"
+        "qr_code": "/img/qr_codes/cem.svg",
+        "qr_url": "https://proceedings.neurips.cc/paper_files/paper/2018/file/c5ff2543b53f4cc0ad3819a36752467b-Paper.pdf"
     },
     {
         "title": "ANCHORS",
@@ -231,7 +235,8 @@
                 "tag": "localization"
             }
         ],
-        "qr_code": "/img/qr_codes/anchors.svg"
+        "qr_code": "/img/qr_codes/anchors.svg",
+        "qr_url": "https://homes.cs.washington.edu/~marcotcr/aaai18.pdf"
     },
     {
         "title": "DICE",
@@ -269,7 +274,8 @@
                 "tag": "localization"
             }
         ],
-        "qr_code": "/img/qr_codes/dice.svg"
+        "qr_code": "/img/qr_codes/dice.svg",
+        "qr_url": "https://arxiv.org/pdf/1905.07697.pdf"
     },
     {
         "title": "SAGE",
@@ -315,7 +321,8 @@
                 "tag": "feature_importance"
             }
         ],
-        "qr_code": "/img/qr_codes/sage.svg"
+        "qr_code": "/img/qr_codes/sage.svg",
+        "qr_url": "https://proceedings.neurips.cc/paper_files/paper/2020/file/c7bf0b7c1a86d5eb3be2c722cf2cf746-Paper.pdf"
     },
     {
         "title": "GradCAM",
@@ -357,7 +364,8 @@
                 "tag": "localization"
             }
         ],
-        "qr_code": "/img/qr_codes/grad_cam.svg"
+        "qr_code": "/img/qr_codes/grad_cam.svg",
+        "qr_url": "https://arxiv.org/pdf/1610.02391.pdf"
     },
     {
         "title": "DeepLIFT",
@@ -403,7 +411,8 @@
                 "tag": "localization"
             }
         ],
-        "qr_code": "/img/qr_codes/deep_lift.svg"
+        "qr_code": "/img/qr_codes/deep_lift.svg",
+        "qr_url": "https://arxiv.org/pdf/1704.02685.pdf"
     },
     {
         "title": "ProtoCF",
@@ -449,7 +458,8 @@
                 "tag": "localization"
             }
         ],
-        "qr_code": "/img/qr_codes/proto_cf.svg"
+        "qr_code": "/img/qr_codes/proto_cf.svg",
+        "qr_url": "https://arxiv.org/pdf/1907.02584.pdf"
     },
     {
         "title": "ProfWeight",
@@ -499,7 +509,8 @@
                 "tag": "localization"
             }
         ],
-        "qr_code": "/img/qr_codes/prof_weight.svg"
+        "qr_code": "/img/qr_codes/prof_weight.svg",
+        "qr_url": "https://arxiv.org/pdf/1807.07506.pdf"
     },
     {
         "title": "ProtoDash",
@@ -549,6 +560,7 @@
                 "tag": "localization"
             }
         ],
-        "qr_code": "/img/qr_codes/proto_dash.svg"
+        "qr_code": "/img/qr_codes/proto_dash.svg",
+        "qr_url": "https://arxiv.org/pdf/1707.01212.pdf"
     }
 ]

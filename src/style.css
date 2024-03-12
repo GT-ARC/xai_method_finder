@@ -665,11 +665,29 @@ body {
   text-align: center;
   font-size: 1vw;
   font-weight: bold;
+  display: flex;
+  flex-direction: column;
 }
 
 .qr_image {
   height: 8vw;
   border-radius: 1vw;
+}
+
+.qr_button {
+  background-color: var(--goki_darkgreen);
+  cursor: pointer;
+  transition: 0.5s;
+  color: white;
+  border-radius: 2vw;
+  width: 50%;
+  margin: auto;
+  margin-top: 5%;
+  font-size: 100%;
+}
+
+.qr_button:hover{
+  transform: translateY(0.3vw);
 }
 
 .mod_selection_button {

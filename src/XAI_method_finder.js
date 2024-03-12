@@ -385,7 +385,6 @@ const MethodFinder = (props) => {
     const selectedElement = filteredElements.find((element) => element.definition.some((definition) => definition.expertise === expertiseLevel));
 
     return selectedElement && selectedElement.definition.find((definition) => definition.expertise === expertiseLevel);
-
   }
 
   return (
@@ -537,10 +536,15 @@ const MethodFinder = (props) => {
                   <div key={method} className="method_object">
                     <h3 className="method_title">{method.title}</h3>
                       <div className="method_info">
-                        <div>
                           <p>Weitere Info:</p>
                           <img className="qr_image" src={process.env.PUBLIC_URL + method.qr_code} alt="qrCode"/>
-                        </div>
+                          <button
+                            type="button" className="qr_button"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              window.open(method.qr_url, '_blank');
+                            }}>Klick!
+                          </button>
                       </div>
                   </div>
                 ))}
