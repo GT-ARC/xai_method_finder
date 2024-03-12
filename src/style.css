@@ -481,6 +481,12 @@ body {
   padding-left: 1vw;
   padding-right: 1vw;
   border-radius: 2vw;
+}
+
+.method_explanation_container {
+  background-color: var(--goki_orange);
+  padding: 1vw;
+  border-radius: 2vw;
   height: fit-content;
 }
 
@@ -543,14 +549,11 @@ body {
   border: 0.25vw solid #ddd;
   border-radius: 2vw;
   margin: 1vw;
-  font-size: 1vw;
-  font-family: monospace;
-  height: 50vw;
 }
 
 .method_info_frame {
-  width: 70vw;
-  height: 45vw;
+  height: 55vw;
+  width: 100%;
   overflow: auto;
 }
 
@@ -586,6 +589,16 @@ body {
   margin: auto;
   text-align: center;
   font-size: 0.9vw;
+  font-weight: bold;
+  color: var(--goki_darkgreen);
+}
+
+.method_info_container .method_title {
+  margin: auto;
+  margin-bottom: 1%;
+  text-align: center;
+  font-family: monospace;
+  font-size: 1.8vw;
   font-weight: bold;
   color: var(--goki_darkgreen);
 }
@@ -706,18 +719,31 @@ body {
   transform: translateY(0.3vw);
 }
 
+.close_button_container {
+  justify-content: right;
+  align-items: right;
+  display: grid;
+  margin-right: 1.2%;
+}
+
 .qr_close_button {
+  justify-content: center;
+  align-items: center;
+  display: grid;
   background-color: var(--goki_darkgreen);
   cursor: pointer;
   transition: 0.5s;
   color: white;
   border-radius: 2vw;
-  width: 3vw;
-  margin-top: 5%;
 }
 
 .qr_close_button:hover{
   transform: translateY(0.3vw);
+}
+
+#close_button {
+  width: 1.7vw;
+  height: 1.7vw;
 }
 
 .mod_selection_button {

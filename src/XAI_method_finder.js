@@ -546,44 +546,50 @@ const MethodFinder = (props) => {
         </div>
 
             {currentIndex === 12 && validMethods.length > 0 && !validMethods.includes("unknown") && (
-            <div className="method_slider_container">
-              <div className="method_container">
-                {!isMethodExplanationVisible && validMethods.map((method) => (
-                  <div key={method} className="method_object">
-                    <h3 className="method_title">{method.title}</h3>
-                      <div className="method_info">
-                          <p>Weitere Info:</p>
-                          <img className="qr_image" src={process.env.PUBLIC_URL + method.qr_code} alt="qrCode"/>
-                          <button
-                            type="button" className="qr_button"
-                            onClick={(e) => {
-                              e.preventDefault();
-                              setSelectedMethod(method);
-                              setIsMethodExplanationVisible(!isMethodExplanationVisible);
-                              //window.open(method.qr_url, '_blank');
-                            }}>Klick!
-                          </button>
-                      </div>
-                  </div>
-                ))}
+              <>
+              {!isMethodExplanationVisible && (
+              <div className="method_slider_container">
+                <div className="method_container">
+                  {validMethods.map((method) => (
+                    <div key={method} className="method_object">
+                      <h3 className="method_title">{method.title}</h3>
+                        <div className="method_info">
+                            <p>Weitere Info:</p>
+                            <img className="qr_image" src={process.env.PUBLIC_URL + method.qr_code} alt="qrCode"/>
+                            <button
+                              type="button" className="qr_button"
+                              onClick={(e) => {
+                                e.preventDefault();
+                                setSelectedMethod(method);
+                                setIsMethodExplanationVisible(!isMethodExplanationVisible);
+                                //window.open(method.qr_url, '_blank');
+                              }}>Klick!
+                            </button>
+                        </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              )}
+            
                 {isMethodExplanationVisible && (
-                  <div className="method_slider_container">
+                  <div className="method_explanation_container">
+                    <div className="close_button_container">
                     <button
                         type="button" className="qr_close_button"
                         onClick={(e) => {
                           e.preventDefault();
                           setIsMethodExplanationVisible(false);
-                        }}><FontAwesomeIcon icon={closeButton} />
+                        }}><FontAwesomeIcon id="close_button" icon={closeButton} />
                     </button>
+                    </div>
                     <div className="method_info_container">
                       <h3 className="method_title">{selectedMethod.title}</h3>
-                      <iframe className="method_info_frame" src={selectedMethod.qr_url} title="Method Explanation"
-                              referrerpolicy="no-referrer-when-downgrade"/>
+                      <iframe className="method_info_frame" src={selectedMethod.qr_url} title="Method Explanation"/>
                     </div>
                   </div>
                 )}
-              </div>
-            </div>
+                </>
             )}
 
             {currentIndex === 13 && targetGroup.length > 0 && !targetGroup.includes("unknown") && (
