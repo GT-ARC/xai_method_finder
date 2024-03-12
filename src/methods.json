@@ -48,7 +48,7 @@
             }
         ],
         "qr_code": "/img/qr_codes/shap.svg",
-        "qr_url": "https://proceedings.neurips.cc/paper/2017/file/8a20a8621978632d76c43dfd28b67767-Paper.pdf"
+        "qr_url": "https://arxiv.org/pdf/1705.07874.pdf"
     },
     {
         "title": "LIME",
@@ -99,7 +99,7 @@
             }
         ],
         "qr_code": "/img/qr_codes/lime.svg",
-        "qr_url": "https://dl.acm.org/doi/pdf/10.1145/2939672.2939778"
+        "qr_url": "https://arxiv.org/pdf/1602.04938.pdf"
     },
     {
         "title": "LRP",
@@ -142,7 +142,7 @@
             }
         ],
         "qr_code": "/img/qr_codes/lrp.svg",
-        "qr_url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0130140&type=printable"
+        "qr_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0130140"
     },
     {
         "title": "CEM",
@@ -181,7 +181,7 @@
             }
         ],
         "qr_code": "/img/qr_codes/cem.svg",
-        "qr_url": "https://proceedings.neurips.cc/paper_files/paper/2018/file/c5ff2543b53f4cc0ad3819a36752467b-Paper.pdf"
+        "qr_url": "https://arxiv.org/pdf/1802.07623.pdf"
     },
     {
         "title": "ANCHORS",
@@ -322,7 +322,7 @@
             }
         ],
         "qr_code": "/img/qr_codes/sage.svg",
-        "qr_url": "https://proceedings.neurips.cc/paper_files/paper/2020/file/c7bf0b7c1a86d5eb3be2c722cf2cf746-Paper.pdf"
+        "qr_url": "https://arxiv.org/pdf/2004.00668.pdf"
     },
     {
         "title": "GradCAM",

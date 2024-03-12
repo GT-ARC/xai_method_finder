@@ -33,7 +33,6 @@ function App() {
     <>
       <div class="logos">
         <img id="zeki_logo" src={zeki_logo} alt="zeki_logo" />
-        <img id="bmas_logo" src={bmas_logo} alt="bmas_logo" />
         <img id="goki_logo" src={goki_logo} alt="goki_logo" />
       </div>
 
@@ -43,6 +42,14 @@ function App() {
       </div>
 
       <div className="App">
+
+        <div class="home_button" style={selectedOption !== null ? { display: "block" } : { display: "none" }}>
+          <button class="page_switch_button home_page_button"
+                  onClick={handleHomeButton}>
+            <FontAwesomeIcon icon={home_button} />
+          </button>
+        </div>
+
         {selectedOption === "method" && (
           <>
           <MethodFinder data={jsonMethodFinderData}
@@ -55,15 +62,14 @@ function App() {
           />
           </>
         )}
-
-        <div class="home_button" style={selectedOption !== null ? { display: "block" } : { display: "none" }}>
-          <button class="page_switch_button home_page_button"
-                  onClick={handleHomeButton}>
-            <FontAwesomeIcon icon={home_button} />
-          </button>
-        </div>
-        
+      
       </div>
+
+      <div class="footer_logo">
+        <p id="bmas_text">Funded by </p>
+        <img id="bmas_logo" src={bmas_logo} alt="bmas_logo" />
+      </div>
+
     </>
 
   );

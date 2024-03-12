@@ -96,6 +96,26 @@ const Tutorial = (props) => {
 
   return (
     <div>
+
+      <div
+        class="next_button"
+        onClick={handleNextButton}
+        style={currentIndex === props.data.length-1 ? { display: "none" } : { display: "block" }}
+      >
+        <button class="page_switch_button next_page_button">
+          <span>Weiter</span>
+        </button>
+      </div>
+      <div
+        class="back_button"
+        onClick={handleBackButton}
+        style={currentIndex === 0 ? { display: "none" } : { display: "block" }}
+      >
+        <button class="page_switch_button previous_page_button">
+          <span>Zurück</span>
+        </button>
+      </div>
+
       <h1 className="page_title">{title}</h1>
 
       <div className='general_container'>
@@ -138,10 +158,17 @@ const Tutorial = (props) => {
                   {item1.questions.map((item2) => (
                     <div className="question">
                       <p style={{ float: "left" }}>{item2.question}</p>
-                      <input type="checkbox"
-                             className="tutorial_checkbox"
-                             checked={selectedOptions.some(item => (item[0] === currentIndex && item[1] === item2.index)) ? true : false}
-                             onChange={() => handleCheckbox(item2.index)} />
+                      <div class="table-row">
+                        <div class="checkbox-wrapper">
+                          <input
+                            id={currentIndex + " " + item2.index}
+                            type="checkbox"
+                            checked={selectedOptions.some(item => (item[0] === currentIndex && item[1] === item2.index)) ? true : false}
+                            onChange={() => handleCheckbox(item2.index)}
+                          />
+                          <label for={currentIndex + " " + item2.index}></label>
+                        </div>
+                      </div>
                     </div>
                   ))}
                 </>
@@ -159,19 +186,17 @@ const Tutorial = (props) => {
                 <div class="table-header col col-1">
                   Sind Sie an dieser Frage interessiert?
                 </div>
-                <li class="table-row">
+                <div class="table-row">
                     <div class="checkbox-wrapper">
-                      <div class="block">
-                        <input
-                          id={item.explanation_scope}
-                          type="checkbox"
-                          checked={selectedQuestions[item.explanation_scope]}
-                          onChange={handleIsQuestionChecked}
-                        />
+                      <input
+                        id={item.explanation_scope}
+                        type="checkbox"
+                        checked={selectedQuestions[item.explanation_scope]}
+                        onChange={handleIsQuestionChecked}
+                      />
                         <label for={item.explanation_scope}></label>
-                      </div>
                     </div>
-                </li>
+                </div>
               </>)
           )}
           </div>
@@ -276,25 +301,6 @@ const Tutorial = (props) => {
             </div>
           </div>
         )}
-      </div>
-
-      <div
-        class="next_button"
-        onClick={handleNextButton}
-        style={currentIndex === props.data.length-1 ? { display: "none" } : { display: "block" }}
-      >
-        <button class="page_switch_button next_page_button">
-          <span>Weiter</span>
-        </button>
-      </div>
-      <div
-        class="back_button"
-        onClick={handleBackButton}
-        style={currentIndex === 0 ? { display: "none" } : { display: "block" }}
-      >
-        <button class="page_switch_button previous_page_button">
-          <span>Zurück</span>
-        </button>
       </div>
       
     </div>

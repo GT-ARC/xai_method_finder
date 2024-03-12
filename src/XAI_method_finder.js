@@ -9,7 +9,8 @@ import { faSquareMinus as unknown,
          faPeopleRoof as trust, faGavel as legitimate, faClipboardList as evaluate, faArrowTrendUp as improve, faSchool as learn,
          faImage as images, faFileLines as text, faTableList as tabular,
          faChartLine as regression, faTag as classification, faBrain as generative,
-         faClone as cnn, faLayerGroup as mlp
+         faClone as cnn, faLayerGroup as mlp,
+         faXmark as closeButton
          } from '@fortawesome/free-solid-svg-icons'
 
 const MethodFinder = (props) => {
@@ -74,6 +75,14 @@ const MethodFinder = (props) => {
   const [currentTooltip, setCurrentTooltip] = useState(0);
   const [isTextboxVisible, setIsTextboxVisible] = useState(false);
   const [selectedButtons, setSelectedButtons] = useState([]);
+
+  const [isMethodExplanationVisible, setIsMethodExplanationVisible] = useState(false);
+  const [selectedMethod, setSelectedMethod] = useState();
+
+  useEffect(() => {
+    if (currentIndex !== 12)
+      setIsMethodExplanationVisible(false);
+  }, [currentIndex]);
 
   // for step 3, target group - role
   // for step 5, target group - explanatory goal
@@ -390,17 +399,24 @@ const MethodFinder = (props) => {
   return (
     <div>
 
-      {currentIndex !== 0 && currentIndex !== 1 && currentIndex !== 2 && currentIndex !== 3 && currentIndex !== 12 && currentIndex !== 13 && (
-        <div className="footer_method_slider_container">
-          <div className="footer_method_container">
-            {validMethods.map((method) => (
-              <div key={method} className="method_object">
-                <h3 className="method_title">{method.title}</h3>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
+      <div
+        class="next_button"
+        onClick={handleNextButton}
+        style={currentIndex === props.data.length-1 ? { display: "none" } : { display: "block" }}
+      >
+        <button class="page_switch_button next_page_button">
+          <span>Weiter</span>
+        </button>
+      </div>
+      <div
+        class="back_button"
+        onClick={handleBackButton}
+        style={currentIndex === 0 ? { display: "none" } : { display: "block" }}
+      >
+        <button class="page_switch_button previous_page_button">
+          <span>Zurück</span>
+        </button>
+      </div>
 
       <h1 className="page_title">{title}</h1>
 
@@ -532,7 +548,7 @@ const MethodFinder = (props) => {
             {currentIndex === 12 && validMethods.length > 0 && !validMethods.includes("unknown") && (
             <div className="method_slider_container">
               <div className="method_container">
-                {validMethods.map((method) => (
+                {!isMethodExplanationVisible && validMethods.map((method) => (
                   <div key={method} className="method_object">
                     <h3 className="method_title">{method.title}</h3>
                       <div className="method_info">
@@ -542,12 +558,30 @@ const MethodFinder = (props) => {
                             type="button" className="qr_button"
                             onClick={(e) => {
                               e.preventDefault();
-                              window.open(method.qr_url, '_blank');
+                              setSelectedMethod(method);
+                              setIsMethodExplanationVisible(!isMethodExplanationVisible);
+                              //window.open(method.qr_url, '_blank');
                             }}>Klick!
                           </button>
                       </div>
                   </div>
                 ))}
+                {isMethodExplanationVisible && (
+                  <div className="method_slider_container">
+                    <button
+                        type="button" className="qr_close_button"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setIsMethodExplanationVisible(false);
+                        }}><FontAwesomeIcon icon={closeButton} />
+                    </button>
+                    <div className="method_info_container">
+                      <h3 className="method_title">{selectedMethod.title}</h3>
+                      <iframe className="method_info_frame" src={selectedMethod.qr_url} title="Method Explanation"
+                              referrerpolicy="no-referrer-when-downgrade"/>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
             )}
@@ -564,27 +598,22 @@ const MethodFinder = (props) => {
               </div>
               </>
             )}
-      </div>
+      </div> 
       </div>
 
-      <div
-        class="next_button"
-        onClick={handleNextButton}
-        style={currentIndex === props.data.length-1 ? { display: "none" } : { display: "block" }}
-      >
-        <button class="page_switch_button next_page_button">
-          <span>Weiter</span>
-        </button>
-      </div>
-      <div
-        class="back_button"
-        onClick={handleBackButton}
-        style={currentIndex === 0 ? { display: "none" } : { display: "block" }}
-      >
-        <button class="page_switch_button previous_page_button">
-          <span>Zurück</span>
-        </button>
-      </div>
+      {currentIndex !== 0 && currentIndex !== 1 && currentIndex !== 2 && currentIndex !== 3 && currentIndex !== 12 && currentIndex !== 13 && (
+              <div className="footer_method_slider_container">
+                <div className="footer_method_container">
+                  {validMethods.map((method) => (
+                    <div key={method} className="method_object">
+                      <h3 className="method_title">{method.title}</h3>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+      
     </div>
   );
 };
