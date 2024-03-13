@@ -377,7 +377,7 @@ body {
 .buttons_method_finder {
   align-items: center;
   margin-top: 7%;
-  min-height: 18vw;
+  min-height: 19vw;
 }
 
 .buttons_method_finder .text {
@@ -574,6 +574,10 @@ body {
   border-radius: 1.5vw;
   margin: 0.5vw;
   font-family: monospace;
+}
+
+.invalid {
+  opacity: 30%;
 }
 
 .method_container .method_title {

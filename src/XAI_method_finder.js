@@ -608,16 +608,20 @@ const MethodFinder = (props) => {
       </div>
 
       {currentIndex !== 0 && currentIndex !== 1 && currentIndex !== 2 && currentIndex !== 3 && currentIndex !== 12 && currentIndex !== 13 && (
-              <div className="footer_method_slider_container">
-                <div className="footer_method_container">
-                  {validMethods.map((method) => (
-                    <div key={method} className="method_object">
+          <div className="footer_method_slider_container">
+            <div className="footer_method_container">
+              {ModelData.map((method) => {
+                const isValid = validMethods.some(validMethod => validMethod === method);
+                const className = isValid ? "valid" : "invalid";
+                  return (
+                    <div key={method} className={`method_object ${className}`}>
                       <h3 className="method_title">{method.title}</h3>
                     </div>
-                  ))}
-                </div>
-              </div>
-            )}
+                  );
+              })}
+            </div>
+          </div>
+      )}
 
       
     </div>
