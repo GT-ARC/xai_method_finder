@@ -51,7 +51,7 @@ const MethodFinder = (props) => {
     setCurrentIndex(currentIndex - 1);
   };
 
-  const { title, description, elements } = props.data[currentIndex];
+  const { tag, title, description, elements } = props.data[currentIndex];
 
   const [imageExists, setImageExists] = useState(false);
   const [chociesExists, setChociesExists] = useState(false);
@@ -80,26 +80,25 @@ const MethodFinder = (props) => {
   const [selectedMethod, setSelectedMethod] = useState();
 
   useEffect(() => {
-    if (currentIndex !== 12)
+    if (tag !== "xaiMethods")
       setIsMethodExplanationVisible(false);
-  }, [currentIndex]);
+  }, [tag]);
 
-  // for step 3, target group - role
-  // for step 5, target group - explanatory goal
-  // for step 6, data type
-  // for step 7, problem type
-  // for step 8, model type
+  // target group - role
+  // target group - explanatory goal
+  // data type
+  // problem type
+  // model type
   const handleButtonChange = (id, buttonIndex) => {
-
     const elementExists = selectedButtons.some(item => (
-      item[0] === currentIndex && item[1] === buttonIndex
+      item[0] === tag && item[1] === buttonIndex
     ));
 
-    const newOption = [currentIndex, buttonIndex];
+    const newOption = [tag, buttonIndex];
 
     if (elementExists) { // remove from list
       const updatedOptions = selectedButtons.filter(item => (
-        item[0] !== currentIndex || item[1] !== buttonIndex
+        item[0] !== tag || item[1] !== buttonIndex
       ));
       setSelectedButtons(updatedOptions);
     }
@@ -112,7 +111,7 @@ const MethodFinder = (props) => {
       else {
         if (!isUnknownOptionSelected) {  // "unknown" is not selected
 
-          if (currentIndex === 2) { // target group
+          if (tag === "role") { // target group
             if (id !== "developer" && !targetGroup.includes("developer")) { // if id is different from "developer" and target group does not include "developer"
               setSelectedButtons(prevOptions => [...prevOptions, newOption]);
             }
@@ -127,7 +126,7 @@ const MethodFinder = (props) => {
       }
     }
 
-    if (currentIndex === 2) {
+    if (tag === "role") {
       if (targetGroup.includes(id)) {   // remove previous selection
         setTargetGroup(targetGroup.filter(item => item !== id));
       } else {                          // add new selection
@@ -148,7 +147,7 @@ const MethodFinder = (props) => {
         }
       }
     }
-    if (currentIndex === 4) {
+    if (tag === "goal") {
       if (explanatoryGoals.includes(id)) {
         setExplanatoryGoals(explanatoryGoals.filter(item => item !== id));
       } else {
@@ -163,7 +162,7 @@ const MethodFinder = (props) => {
         }
       }
     }
-    if (currentIndex === 5) {
+    if (tag === "dataType") {
       if (dataType.includes(id)) {
         setDataType(dataType.filter(item => item !== id));
       } else {
@@ -178,7 +177,7 @@ const MethodFinder = (props) => {
         }
       }
     }
-    if (currentIndex === 6) {
+    if (tag === "problemType") {
       if (problemType.includes(id)) {
         setProblemType(problemType.filter(item => item !== id));
       } else {
@@ -193,7 +192,7 @@ const MethodFinder = (props) => {
         }
       }
     }
-    if (currentIndex === 7) {
+    if (tag === "modelType") {
       if (modelType.includes(id)) {
         setModelType(modelType.filter(item => item !== id));
       } else {
@@ -211,7 +210,7 @@ const MethodFinder = (props) => {
 
   };
 
-  // for step 4, target group - specialist knowledge
+  // target group - specialist knowledge
   const handleSliderChange = (event) => {
     setLevelOfExpertise(parseInt(event.target.value, 10));
   };
@@ -333,8 +332,9 @@ const MethodFinder = (props) => {
 
   useEffect(() => {
 
-    if ((currentIndex === 2 && targetGroup.includes("unknown")) || (currentIndex === 4 && explanatoryGoals.includes("unknown")) ||
-        (currentIndex === 5 && dataType.includes("unknown")) || (currentIndex === 6 && problemType.includes("unknown")) || (currentIndex === 7 && modelType.includes("unknown")))
+    if ((tag === "role" && targetGroup.includes("unknown")) || (tag === "goal" && explanatoryGoals.includes("unknown")) ||
+        (tag === "dataType" && dataType.includes("unknown")) || (tag === "problemType" === 6 && problemType.includes("unknown")) ||
+        (tag === "modelType" && modelType.includes("unknown")))
     {
       setIsUnknownOptionSelected(true);
       setIsTextboxVisible(true);
@@ -346,13 +346,13 @@ const MethodFinder = (props) => {
       setInput('');
     }
 
-  }, [currentIndex, dataType, elements, explanatoryGoals, modelType, problemType, selectedQuestions, targetGroup]);
+  }, [tag, dataType, elements, explanatoryGoals, modelType, problemType, selectedQuestions, targetGroup]);
 
   useEffect(() => {
 
-      if ((currentIndex === 2 && !targetGroup.includes("unknown") && targetGroup.length > 0) || (currentIndex === 4 && !explanatoryGoals.includes("unknown") && explanatoryGoals.length > 0) ||
-          (currentIndex === 5 && !dataType.includes("unknown") && dataType.length > 0) || (currentIndex === 6 && !problemType.includes("unknown") && problemType.length > 0) ||
-          (currentIndex === 7 && !modelType.includes("unknown") && modelType.length > 0))
+      if ((tag === "role" && !targetGroup.includes("unknown") && targetGroup.length > 0) || (tag === "goal" && !explanatoryGoals.includes("unknown") && explanatoryGoals.length > 0) ||
+          (tag === "dataType" && !dataType.includes("unknown") && dataType.length > 0) || (tag === "problemType" && !problemType.includes("unknown") && problemType.length > 0) ||
+          (tag === "modelType" && !modelType.includes("unknown") && modelType.length > 0))
       {
         setIsAnyButtonSelected(true);
       }
@@ -360,7 +360,7 @@ const MethodFinder = (props) => {
         setIsAnyButtonSelected(false);
       }
 
-  }, [currentIndex, dataType, elements, explanatoryGoals, modelType, problemType, selectedQuestions, targetGroup]);
+  }, [tag, dataType, elements, explanatoryGoals, modelType, problemType, selectedQuestions, targetGroup]);
 
   const [textInput, setTextInput] = useState('');
   const [dataTypeInput, setDataTypeInput] = useState('');
@@ -377,9 +377,9 @@ const MethodFinder = (props) => {
   };
 
   const setInput = () => {
-    if (currentIndex === 5) setDataTypeInput(textInput.trim());
-    if (currentIndex === 6) setProblemTypeInput(textInput.trim());
-    if (currentIndex === 7) setModelTypeInput(textInput.trim());
+    if (tag === "dataType") setDataTypeInput(textInput.trim());
+    if (tag === "problemType") setProblemTypeInput(textInput.trim());
+    if (tag === "modelType") setModelTypeInput(textInput.trim());
   };
 
   const handleKeyPress = (event) => {
@@ -387,9 +387,8 @@ const MethodFinder = (props) => {
   };
 
   const getRecommendations = () => {
-
     let expertiseLevel = levelOfExpertise < 3 ? 0 : 1;
-
+    
     const filteredElements = elements.filter((element) => element.target_group.some((item) => targetGroup.includes(item.tag)));
     const selectedElement = filteredElements.find((element) => element.definition.some((definition) => definition.expertise === expertiseLevel));
 
@@ -420,7 +419,7 @@ const MethodFinder = (props) => {
 
       <h1 className="page_title">{title}</h1>
 
-      <div className={(currentIndex === 12 || currentIndex === 13 )? 'output_container' : 'general_container'}>
+      <div className={(tag === "xaiMethods" || tag === "targetSpecific" )? 'output_container' : 'general_container'}>
         <div className={(chociesExists || sliderExists )? 'description_with_buttons' : 'title_and_description'}>
           <p dangerouslySetInnerHTML={{ __html: description }} class="description"/>
           {questionTableExists && elements.map(
@@ -459,7 +458,7 @@ const MethodFinder = (props) => {
                   <div className="icons">
                     {item1.options.map((item2) => (
                         <button
-                          className={selectedButtons.some(item => (item[0] === currentIndex && item[1] === item2.index)) ? 'selected' : 'button'}
+                          className={selectedButtons.some(item => (item[0] === tag && item[1] === item2.index)) ? 'selected' : 'button'}
                           onClick={() => handleButtonChange(item2.tag, item2.index)}
                           onMouseEnter={(e) => handleMouseEnter(e, item2.index)}
                           onMouseLeave={handleMouseLeave}
@@ -474,7 +473,7 @@ const MethodFinder = (props) => {
                   {isTooltipVisible && (currentTooltip >= 0 && currentTooltip <= item1.options.length-1) && (
                     <p className="text" dangerouslySetInnerHTML={{ __html: item1.options[currentTooltip].description }} />
                   )}
-                  {isTextboxVisible && (currentIndex === 5 || currentIndex === 6 || currentIndex === 7) && (
+                  {isTextboxVisible && (tag === "dataType" || tag === "problemType" || tag === "modelType") && (
                     <div className="textbox_unknown"
                          style={isTooltipVisible && currentTooltip !== item1.options.length-1 ? { display: "none" } : { display: "block" }}>
                       <p className="text" 
@@ -545,7 +544,7 @@ const MethodFinder = (props) => {
           </div>
         </div>
 
-            {currentIndex === 12 && validMethods.length > 0 && !validMethods.includes("unknown") && (
+            {tag === "xaiMethods" && validMethods.length > 0 && !validMethods.includes("unknown") && (
               <>
               {!isMethodExplanationVisible && (
               <div className="method_slider_container">
@@ -592,7 +591,7 @@ const MethodFinder = (props) => {
                 </>
             )}
 
-            {currentIndex === 13 && targetGroup.length > 0 && !targetGroup.includes("unknown") && (
+            {tag === "targetSpecific" && targetGroup.length > 0 && !targetGroup.includes("unknown") && (
               <>                     
               <div className="recommendation_container"> 
                 {getRecommendations().explanations.map((item) => (
@@ -607,7 +606,7 @@ const MethodFinder = (props) => {
       </div> 
       </div>
 
-      {currentIndex !== 0 && currentIndex !== 1 && currentIndex !== 2 && currentIndex !== 3 && currentIndex !== 12 && currentIndex !== 13 && (
+      {tag !== "homepage" && tag !== "startingTips" && tag !== "role" && tag !== "expertise" && tag !== "xaiMethods" && tag !== "targetSpecific" && (
           <div className="footer_method_slider_container">
             <div className="footer_method_container">
               {ModelData.map((method) => {
