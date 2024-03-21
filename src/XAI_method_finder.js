@@ -636,14 +636,11 @@ const MethodFinder = (props) => {
               </div>
               </>
             )}
-            {tag === "targetSpecific" && targetGroup.length === 0 && !targetGroup.includes("unknown") && (
+            {tag === "targetSpecific" && (targetGroup.length === 0 || targetGroup.includes("unknown")) && (
               <>
               <p className="description" style={{textAlign: 'center', marginTop: '2%'}}><b>Sie haben keine gültige Rolle ausgewählt.<br></br><br></br>Bitte treffen Sie Ihre Wahl:</b></p>
               <button className="button_target_tab" onClick={handleTargetGroupButton}>Zielgruppe - Rolle</button>
               </>
-            )}
-            {tag === "targetSpecific" && targetGroup.includes("unknown") && (
-              <p>Unknown!</p>
             )}
 
       </div> 
