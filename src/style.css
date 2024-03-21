@@ -551,6 +551,15 @@ body {
   margin: 1vw;
 }
 
+.footer_method_details {
+  width: fit-content;
+  padding: 0.5vw;
+  font-size: 0.9vw;
+  background-color: rgba(255, 255, 255, 1);
+  border: 0.2vw solid var(--goki_darkgreen);
+  border-radius: 2vw;
+}
+
 .method_info_frame {
   height: 55vw;
   width: 100%;
@@ -574,6 +583,11 @@ body {
   border-radius: 1.5vw;
   margin: 0.5vw;
   font-family: monospace;
+  cursor: pointer;
+}
+
+.footer_method_container .method_object:hover {
+  border: 0.15vw solid var(--goki_darkgreen);
 }
 
 .invalid {
@@ -587,12 +601,21 @@ body {
   font-weight: bold;
   text-decoration: underline;
   color: var(--goki_darkgreen);
+  cursor: pointer;
 }
 
 .footer_method_container .method_title {
   margin: auto;
   text-align: center;
   font-size: 0.9vw;
+  font-weight: bold;
+  color: var(--goki_darkgreen);
+}
+
+.footer_method_details .method_title_pop_up {
+  margin: auto;
+  text-align: center;
+  font-size: 1vw;
   font-weight: bold;
   color: var(--goki_darkgreen);
 }

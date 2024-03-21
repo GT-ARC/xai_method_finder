@@ -263,7 +263,7 @@ const MethodFinder = (props) => {
 
     const checkMethod = (method) => {
       let isGoalsValid = true;
-      let isTasksValid = true;
+      let isProblemsValid = true;
       let isModelsValid = true;
       let isDataValid = true;
 
@@ -276,22 +276,22 @@ const MethodFinder = (props) => {
         }
       }
       
-      // problems - tasks
+      // problems
       if (!problemType.includes("unknown")) {
         for (let i = 0; i < problemType.length; i++) {
-          isTasksValid = method.features.some(task => task.type === "task" && task.tag === problemType[i]);
-          if (!isTasksValid) break;
+          isProblemsValid = method.features.some(problem => problem.type === "problemType" && problem.tag === problemType[i]);
+          if (!isProblemsValid) break;
         }
       }
 
       // data
       if (!dataType.includes("unknown")) {
         for (let i = 0; i < dataType.length; i++) {
-          if (method.features.some(data_type => data_type.type === "data_type" && data_type.tag === "any") &&
+          if (method.features.some(data_type => data_type.type === "dataType" && data_type.tag === "any") &&
               dataType.some(tag => tag !== "unknown")) 
           { isDataValid = true; }
           else {  
-            isDataValid = method.features.some(data_type => data_type.type === "data_type" && data_type.tag === dataType[i]);
+            isDataValid = method.features.some(data_type => data_type.type === "dataType" && data_type.tag === dataType[i]);
             if (!isDataValid) break;
           }
         }
@@ -301,7 +301,7 @@ const MethodFinder = (props) => {
       // Agnostic was assumed to include CNN and MLP.
       if (!modelType.includes("unknown")) {
         for (let i = 0; i < modelType.length; i++) {
-          isModelsValid = method.features.some(model_type => model_type.type === "model_type" && 
+          isModelsValid = method.features.some(model_type => model_type.type === "modelType" && 
                                               (modelType[i] !== "unknown" && (model_type.tag === modelType[i] || model_type.tag === "agnostic")));
           if (!isModelsValid) break;
         }
@@ -311,16 +311,16 @@ const MethodFinder = (props) => {
 
       // explanation scope
       if (selectedQuestions['global']) {
-        isGlobal = method.features.some(explanation_scope => explanation_scope.type === "explanation_scope" && explanation_scope.tag === "global");
+        isGlobal = method.features.some(explanation_scope => explanation_scope.type === "explanationScope" && explanation_scope.tag === "global");
       }
       if (selectedQuestions['local']) {
-        isLocal = method.features.some(explanation_scope => explanation_scope.type === "explanation_scope" && explanation_scope.tag === "local");
+        isLocal = method.features.some(explanation_scope => explanation_scope.type === "explanationScope" && explanation_scope.tag === "local");
       }
       if (selectedQuestions['counterfactual']) {
-        isCounterfactual = method.features.some(explanation_scope => explanation_scope.type === "explanation_scope" && explanation_scope.tag === "counterfactual");
+        isCounterfactual = method.features.some(explanation_scope => explanation_scope.type === "explanationScope" && explanation_scope.tag === "counterfactual");
       }
 
-        return isGoalsValid && isTasksValid && isModelsValid && isDataValid && (isGlobal && isLocal && isCounterfactual);
+        return isGoalsValid && isProblemsValid && isModelsValid && isDataValid && (isGlobal && isLocal && isCounterfactual);
     };
 
     determineMethod();
@@ -394,6 +394,31 @@ const MethodFinder = (props) => {
 
     return selectedElement && selectedElement.definition.find((definition) => definition.expertise === expertiseLevel);
   }
+
+  const [isFooterHovered, setIsFooterHovered] = useState(false);
+  const [isFinalMethodPageHovered, setIsFinalMethodPageHovered] = useState(false);
+  const [hoveredMethod, setHoveredMethod] = useState(null);
+
+  const [mousePositionXForFooter, setMousePositionXForFooter] = useState(0);
+  const [mousePositionYForFooter, setMousePositionYForFooter] = useState(0);
+
+  useEffect(() => {
+    const handleMouseMoveX = (event) => {
+      setMousePositionXForFooter(event.pageX);
+    };
+
+    const handleMouseMoveY = (event) => {
+      setMousePositionYForFooter(event.pageY);
+    };
+
+    window.addEventListener('mousemove', handleMouseMoveX);
+    window.addEventListener('mousemove', handleMouseMoveY);
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMoveX);
+      window.removeEventListener('mousemove', handleMouseMoveY);
+    };
+  }, []);
 
   return (
     <div>
@@ -551,7 +576,9 @@ const MethodFinder = (props) => {
                 <div className="method_container">
                   {validMethods.map((method) => (
                     <div key={method} className="method_object">
-                      <h3 className="method_title">{method.title}</h3>
+                      <h3 className="method_title"
+                          onMouseEnter={() => {setIsFinalMethodPageHovered(true); setHoveredMethod(method);}}
+                          onMouseLeave={() => setIsFinalMethodPageHovered(false)}> {method.title} </h3>
                         <div className="method_info">
                             <p>Weitere Info:</p>
                             <img className="qr_image" src={process.env.PUBLIC_URL + method.qr_code} alt="qrCode"/>
@@ -613,16 +640,114 @@ const MethodFinder = (props) => {
                 const isValid = validMethods.some(validMethod => validMethod === method);
                 const className = isValid ? "valid" : "invalid";
                   return (
-                    <div key={method} className={`method_object ${className}`}>
+                  <div>
+                    <div key={method} className={`method_object ${className}`}
+                         onMouseEnter={() => {setIsFooterHovered(true);
+                                              setHoveredMethod(method);}
+                                      } 
+                         onMouseLeave={() => setIsFooterHovered(false)}>
                       <h3 className="method_title">{method.title}</h3>
                     </div>
+
+                  </div>
                   );
               })}
             </div>
           </div>
       )}
 
-      
+      {isFooterHovered && (
+        <div className="footer_method_details" style={{position: "absolute", left: `${mousePositionXForFooter}px`, marginTop: "-17.5%"}}>
+          <h3 className="method_title_pop_up">{hoveredMethod.title}</h3>
+            {hoveredMethod.features.reduce((accumulator, feature, index, array) => {
+              let correspondingCategory, categoryTitle, correspondingElement, elementTitle;
+                if (feature.type === "explanationScope") {
+                  categoryTitle = "Explanation Scope";
+                  if (feature.tag === "global") {elementTitle = "Global"}
+                  else if (feature.tag === "local") {elementTitle = "Local"}
+                  else if (feature.tag === "counterfactual") {elementTitle = "Counterfactual"}
+                  correspondingCategory = true;
+                  correspondingElement = true;
+                }
+                else {
+                  correspondingCategory = props.data.find(element => element.tag === feature.type);
+                  if (correspondingCategory) {
+                    categoryTitle = correspondingCategory.title;
+                    if (feature.type === "modelType" && feature.tag === "agnostic") {
+                      elementTitle = "Agnostic";
+                      correspondingElement = true;
+                    }
+                    else {
+                      correspondingElement = correspondingCategory.elements.find(e => e.type === "select").options.find(t => t.tag === feature.tag);
+                        if (correspondingElement) {
+                          elementTitle = correspondingElement.title;
+                        }
+                    }
+                  }
+                }
+
+                if (correspondingCategory && correspondingElement) {
+
+                  if (index === 0 || array[index - 1].type !== feature.type) {
+                    accumulator.push(<p key={index}><strong>{categoryTitle}:</strong> {elementTitle}</p>);
+                  }
+                  else {
+                    accumulator[accumulator.length - 1] = (
+                      <p key={index}>{accumulator[accumulator.length - 1].props.children}, {elementTitle}</p>
+                    );
+                  }
+                }
+                  return accumulator;
+            }, [])}
+        </div>
+      )}
+
+      {isFinalMethodPageHovered && (
+        <div className="footer_method_details" style={{position: "absolute", left: `${mousePositionXForFooter}px`, marginTop: "-17.5%"}}>
+          <h3 className="method_title_pop_up">{hoveredMethod.title}</h3>
+            {hoveredMethod.features.reduce((accumulator, feature, index, array) => {
+              let correspondingCategory, categoryTitle, correspondingElement, elementTitle;
+                if (feature.type === "explanationScope") {
+                  categoryTitle = "Explanation Scope";
+                  if (feature.tag === "global") {elementTitle = "Global"}
+                  else if (feature.tag === "local") {elementTitle = "Local"}
+                  else if (feature.tag === "counterfactual") {elementTitle = "Counterfactual"}
+                  correspondingCategory = true;
+                  correspondingElement = true;
+                }
+                else {
+                  correspondingCategory = props.data.find(element => element.tag === feature.type);
+                  if (correspondingCategory) {
+                    categoryTitle = correspondingCategory.title;
+                    if (feature.type === "modelType" && feature.tag === "agnostic") {
+                      elementTitle = "Agnostic";
+                      correspondingElement = true;
+                    }
+                    else {
+                      correspondingElement = correspondingCategory.elements.find(e => e.type === "select").options.find(t => t.tag === feature.tag);
+                        if (correspondingElement) {
+                          elementTitle = correspondingElement.title;
+                        }
+                    }
+                  }
+                }
+
+                if (correspondingCategory && correspondingElement) {
+
+                  if (index === 0 || array[index - 1].type !== feature.type) {
+                    accumulator.push(<p key={index}><strong>{categoryTitle}:</strong> {elementTitle}</p>);
+                  }
+                  else {
+                    accumulator[accumulator.length - 1] = (
+                      <p key={index}>{accumulator[accumulator.length - 1].props.children}, {elementTitle}</p>
+                    );
+                  }
+                }
+                  return accumulator;
+            }, [])}
+        </div>
+      )}
+
     </div>
   );
 };

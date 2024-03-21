@@ -3,27 +3,27 @@
         "title": "SHAP",
         "features": [
             {
-                "type": "data_type",
+                "type": "dataType",
                 "tag": "images"
             },
             {
-                "type": "data_type",
+                "type": "dataType",
                 "tag": "tabular"
             },
             {
-                "type": "data_type",
+                "type": "dataType",
                 "tag": "any"
             },
             {
-                "type": "model_type",
+                "type": "modelType",
                 "tag": "agnostic"
             },
             {
-                "type": "task",
+                "type": "problemType",
                 "tag": "regression"
             },
             {
-                "type": "task",
+                "type": "problemType",
                 "tag": "classification"
             },
             {
@@ -35,15 +35,15 @@
                 "tag": "learn"
             },
             {
-                "type": "explanation_scope",
+                "type": "explanationScope",
                 "tag": "local"
             },
             {
-                "type": "explanation_type",
+                "type": "explanationType",
                 "tag": "feature_importance"
             },
             {
-                "type": "explanation_type",
+                "type": "explanationType",
                 "tag": "heatmap"
             }
         ],
@@ -54,27 +54,27 @@
         "title": "LIME",
         "features": [
             {
-                "type": "data_type",
+                "type": "dataType",
                 "tag": "images"
             },
             {
-                "type": "data_type",
+                "type": "dataType",
                 "tag": "tabular"
             },
             {
-                "type": "data_type",
+                "type": "dataType",
                 "tag": "text"
             },
             {
-                "type": "model_type",
+                "type": "modelType",
                 "tag": "agnostic"
             },
             {
-                "type": "task",
+                "type": "problemType",
                 "tag": "regression"
             },
             {
-                "type": "task",
+                "type": "problemType",
                 "tag": "classification"
             },
             {
@@ -86,15 +86,15 @@
                 "tag": "trust"
             },
             {
-                "type": "explanation_scope",
+                "type": "explanationScope",
                 "tag": "local"
             },
             {
-                "type": "explanation_type",
+                "type": "explanationType",
                 "tag": "feature_importance"
             },
             {
-                "type": "explanation_type",
+                "type": "explanationType",
                 "tag": "localization"
             }
         ],
@@ -105,19 +105,19 @@
         "title": "LRP",
         "features": [
             {
-                "type": "data_type",
+                "type": "dataType",
                 "tag": "images"
             },
             {
-                "type": "data_type",
+                "type": "dataType",
                 "tag": "text"
             },
             {
-                "type": "model_type",
+                "type": "modelType",
                 "tag": "mlp"
             },
             {
-                "type": "task",
+                "type": "problemType",
                 "tag": "classification"
             },
             {
@@ -129,15 +129,15 @@
                 "tag": "learn"
             },
             {
-                "type": "explanation_scope",
+                "type": "explanationScope",
                 "tag": "local"
             },
             {
-                "type": "explanation_type",
+                "type": "explanationType",
                 "tag": "localization"
             },
             {
-                "type": "explanation_type",
+                "type": "explanationType",
                 "tag": "heatmap"
             }
         ],
@@ -148,19 +148,19 @@
         "title": "CEM",
         "features": [
             {
-                "type": "data_type",
+                "type": "dataType",
                 "tag": "images"
             },
             {
-                "type": "data_type",
+                "type": "dataType",
                 "tag": "tabular"
             },
             {
-                "type": "model_type",
+                "type": "modelType",
                 "tag": "mlp"
             },
             {
-                "type": "task",
+                "type": "problemType",
                 "tag": "classification"
             },
             {
@@ -172,11 +172,11 @@
                 "tag": "trust"
             },
             {
-                "type": "explanation_scope",
+                "type": "explanationScope",
                 "tag": "counterfactual"
             },
             {
-                "type": "explanation_type",
+                "type": "explanationType",
                 "tag": "localization"
             }
         ],
@@ -187,23 +187,23 @@
         "title": "ANCHORS",
         "features": [
             {
-                "type": "data_type",
+                "type": "dataType",
                 "tag": "images"
             },
             {
-                "type": "data_type",
+                "type": "dataType",
                 "tag": "tabular"
             },
             {
-                "type": "data_type",
+                "type": "dataType",
                 "tag": "text"
             },
             {
-                "type": "model_type",
+                "type": "modelType",
                 "tag": "agnostic"
             },
             {
-                "type": "task",
+                "type": "problemType",
                 "tag": "classification"
             },
             {
@@ -223,15 +223,15 @@
                 "tag": "trust"
             },
             {
-                "type": "explanation_scope",
+                "type": "explanationScope",
                 "tag": "counterfactual"
             },
             {
-                "type": "explanation_type",
+                "type": "explanationType",
                 "tag": "decision_rule"
             },
             {
-                "type": "explanation_type",
+                "type": "explanationType",
                 "tag": "localization"
             }
         ],
@@ -242,15 +242,15 @@
         "title": "DICE",
         "features": [
             {
-                "type": "data_type",
+                "type": "dataType",
                 "tag": "tabular"
             },
             {
-                "type": "model_type",
+                "type": "modelType",
                 "tag": "agnostic"
             },
             {
-                "type": "task",
+                "type": "problemType",
                 "tag": "classification"
             },
             {
@@ -262,15 +262,15 @@
                 "tag": "trust"
             },
             {
-                "type": "explanation_scope",
+                "type": "explanationScope",
                 "tag": "counterfactual"
             },
             {
-                "type": "explanation_type",
+                "type": "explanationType",
                 "tag": "decision_rule"
             },
             {
-                "type": "explanation_type",
+                "type": "explanationType",
                 "tag": "localization"
             }
         ],
@@ -281,23 +281,23 @@
         "title": "SAGE",
         "features": [
             {
-                "type": "data_type",
+                "type": "dataType",
                 "tag": "images"
             },
             {
-                "type": "data_type",
+                "type": "dataType",
                 "tag": "tabular"
             },
             {
-                "type": "model_type",
+                "type": "modelType",
                 "tag": "agnostic"
             },
             {
-                "type": "task",
+                "type": "problemType",
                 "tag": "regression"
             },
             {
-                "type": "task",
+                "type": "problemType",
                 "tag": "classification"
             },
             {
@@ -313,11 +313,11 @@
                 "tag": "trust"
             },
             {
-                "type": "explanation_scope",
+                "type": "explanationScope",
                 "tag": "global"
             },
             {
-                "type": "explanation_type",
+                "type": "explanationType",
                 "tag": "feature_importance"
             }
         ],
@@ -328,19 +328,19 @@
         "title": "GradCAM",
         "features": [
             {
-                "type": "data_type",
+                "type": "dataType",
                 "tag": "images"
             },
             {
-                "type": "data_type",
+                "type": "dataType",
                 "tag": "text"
             },
             {
-                "type": "model_type",
+                "type": "modelType",
                 "tag": "cnn"
             },
             {
-                "type": "task",
+                "type": "problemType",
                 "tag": "classification"
             },
             {
@@ -352,15 +352,15 @@
                 "tag": "evaluate"
             },
             {
-                "type": "explanation_scope",
+                "type": "explanationScope",
                 "tag": "local"
             },
             {
-                "type": "explanation_type",
+                "type": "explanationType",
                 "tag": "heatmap"
             },
             {
-                "type": "explanation_type",
+                "type": "explanationType",
                 "tag": "localization"
             }
         ],
@@ -371,23 +371,23 @@
         "title": "DeepLIFT",
         "features": [
             {
-                "type": "data_type",
+                "type": "dataType",
                 "tag": "images"
             },
             {
-                "type": "data_type",
+                "type": "dataType",
                 "tag": "tabular"
             },
             {
-                "type": "model_type",
+                "type": "modelType",
                 "tag": "mlp"
             },
             {
-                "type": "task",
+                "type": "problemType",
                 "tag": "regression"
             },
             {
-                "type": "task",
+                "type": "problemType",
                 "tag": "classification"
             },
             {
@@ -399,15 +399,15 @@
                 "tag": "evaluate"
             },
             {
-                "type": "explanation_scope",
+                "type": "explanationScope",
                 "tag": "local"
             },
             {
-                "type": "explanation_type",
+                "type": "explanationType",
                 "tag": "heatmap"
             },
             {
-                "type": "explanation_type",
+                "type": "explanationType",
                 "tag": "localization"
             }
         ],
@@ -418,23 +418,23 @@
         "title": "ProtoCF",
         "features": [
             {
-                "type": "data_type",
+                "type": "dataType",
                 "tag": "images"
             },
             {
-                "type": "data_type",
+                "type": "dataType",
                 "tag": "tabular"
             },
             {
-                "type": "model_type",
+                "type": "modelType",
                 "tag": "agnostic"
             },
             {
-                "type": "task",
+                "type": "problemType",
                 "tag": "regression"
             },
             {
-                "type": "task",
+                "type": "problemType",
                 "tag": "classification"
             },
             {
@@ -450,11 +450,11 @@
                 "tag": "trust"
             },
             {
-                "type": "explanation_scope",
+                "type": "explanationScope",
                 "tag": "counterfactual"
             },
             {
-                "type": "explanation_type",
+                "type": "explanationType",
                 "tag": "localization"
             }
         ],
@@ -465,27 +465,27 @@
         "title": "ProfWeight",
         "features": [
             {
-                "type": "data_type",
+                "type": "dataType",
                 "tag": "images"
             },
             {
-                "type": "data_type",
+                "type": "dataType",
                 "tag": "tabular"
             },
             {
-                "type": "data_type",
+                "type": "dataType",
                 "tag": "any"
             },
             {
-                "type": "model_type",
+                "type": "modelType",
                 "tag": "mlp"
             },
             {
-                "type": "task",
+                "type": "problemType",
                 "tag": "regression"
             },
             {
-                "type": "task",
+                "type": "problemType",
                 "tag": "classification"
             },
             {
@@ -497,15 +497,15 @@
                 "tag": "evaluate"
             },
             {
-                "type": "explanation_scope",
+                "type": "explanationScope",
                 "tag": "global"
             },
             {
-                "type": "explanation_type",
+                "type": "explanationType",
                 "tag": "feature_importance"
             },
             {
-                "type": "explanation_type",
+                "type": "explanationType",
                 "tag": "localization"
             }
         ],
@@ -516,27 +516,27 @@
         "title": "ProtoDash",
         "features": [
             {
-                "type": "data_type",
+                "type": "dataType",
                 "tag": "images"
             },
             {
-                "type": "data_type",
+                "type": "dataType",
                 "tag": "tabular"
             },
             {
-                "type": "data_type",
+                "type": "dataType",
                 "tag": "text"
             },
             {
-                "type": "model_type",
+                "type": "modelType",
                 "tag": "mlp"
             },
             {
-                "type": "task",
+                "type": "problemType",
                 "tag": "regression"
             },
             {
-                "type": "task",
+                "type": "problemType",
                 "tag": "classification"
             },
             {
@@ -544,19 +544,19 @@
                 "tag": "evaluate"
             },
             {
-                "type": "explanation_scope",
+                "type": "explanationScope",
                 "tag": "local"
             },
             {
-                "type": "explanation_scope",
+                "type": "explanationScope",
                 "tag": "counterfactual"
             },
             {
-                "type": "explanation_type",
+                "type": "explanationType",
                 "tag": "decision_rule"
             },
             {
-                "type": "explanation_type",
+                "type": "explanationType",
                 "tag": "localization"
             }
         ],
