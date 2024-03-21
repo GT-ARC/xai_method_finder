@@ -51,6 +51,10 @@ const MethodFinder = (props) => {
     setCurrentIndex(currentIndex - 1);
   };
 
+  const handleTargetGroupButton = () => {
+    setCurrentIndex(props.data.findIndex(item =>item.tag==="role"));
+  };
+
   const { tag, title, description, elements } = props.data[currentIndex];
 
   const [imageExists, setImageExists] = useState(false);
@@ -399,24 +403,21 @@ const MethodFinder = (props) => {
   const [isFinalMethodPageHovered, setIsFinalMethodPageHovered] = useState(false);
   const [hoveredMethod, setHoveredMethod] = useState(null);
 
+  const handleMethodInfoTab = (event) => {
+    window.open(hoveredMethod.qr_url, '_blank');
+  };
+
   const [mousePositionXForFooter, setMousePositionXForFooter] = useState(0);
-  const [mousePositionYForFooter, setMousePositionYForFooter] = useState(0);
 
   useEffect(() => {
     const handleMouseMoveX = (event) => {
       setMousePositionXForFooter(event.pageX);
     };
 
-    const handleMouseMoveY = (event) => {
-      setMousePositionYForFooter(event.pageY);
-    };
-
     window.addEventListener('mousemove', handleMouseMoveX);
-    window.addEventListener('mousemove', handleMouseMoveY);
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMoveX);
-      window.removeEventListener('mousemove', handleMouseMoveY);
     };
   }, []);
 
@@ -569,7 +570,7 @@ const MethodFinder = (props) => {
           </div>
         </div>
 
-            {tag === "xaiMethods" && validMethods.length > 0 && !validMethods.includes("unknown") && (
+            {tag === "xaiMethods" && validMethods.length > 0 && (
               <>
               {!isMethodExplanationVisible && (
               <div className="method_slider_container">
@@ -617,6 +618,11 @@ const MethodFinder = (props) => {
                 )}
                 </>
             )}
+            {tag === "xaiMethods" && validMethods.length === 0 && (
+              <>
+              <p className="description" style={{marginTop: '2%'}}><b>Es wurde keine XAI-Methode gefunden, die den von Ihnen ausgewählten Kriterien entspricht.</b></p>
+              </>
+            )}
 
             {tag === "targetSpecific" && targetGroup.length > 0 && !targetGroup.includes("unknown") && (
               <>                     
@@ -630,6 +636,16 @@ const MethodFinder = (props) => {
               </div>
               </>
             )}
+            {tag === "targetSpecific" && targetGroup.length === 0 && !targetGroup.includes("unknown") && (
+              <>
+              <p className="description" style={{textAlign: 'center', marginTop: '2%'}}><b>Sie haben keine gültige Rolle ausgewählt.<br></br><br></br>Bitte treffen Sie Ihre Wahl:</b></p>
+              <button className="button_target_tab" onClick={handleTargetGroupButton}>Zielgruppe - Rolle</button>
+              </>
+            )}
+            {tag === "targetSpecific" && targetGroup.includes("unknown") && (
+              <p>Unknown!</p>
+            )}
+
       </div> 
       </div>
 
@@ -644,7 +660,8 @@ const MethodFinder = (props) => {
                     <div key={method} className={`method_object ${className}`}
                          onMouseEnter={() => {setIsFooterHovered(true);
                                               setHoveredMethod(method);}
-                                      } 
+                                      }
+                         onClick={handleMethodInfoTab}
                          onMouseLeave={() => setIsFooterHovered(false)}>
                       <h3 className="method_title">{method.title}</h3>
                     </div>
@@ -656,53 +673,7 @@ const MethodFinder = (props) => {
           </div>
       )}
 
-      {isFooterHovered && (
-        <div className="footer_method_details" style={{position: "absolute", left: `${mousePositionXForFooter}px`, marginTop: "-17.5%"}}>
-          <h3 className="method_title_pop_up">{hoveredMethod.title}</h3>
-            {hoveredMethod.features.reduce((accumulator, feature, index, array) => {
-              let correspondingCategory, categoryTitle, correspondingElement, elementTitle;
-                if (feature.type === "explanationScope") {
-                  categoryTitle = "Explanation Scope";
-                  if (feature.tag === "global") {elementTitle = "Global"}
-                  else if (feature.tag === "local") {elementTitle = "Local"}
-                  else if (feature.tag === "counterfactual") {elementTitle = "Counterfactual"}
-                  correspondingCategory = true;
-                  correspondingElement = true;
-                }
-                else {
-                  correspondingCategory = props.data.find(element => element.tag === feature.type);
-                  if (correspondingCategory) {
-                    categoryTitle = correspondingCategory.title;
-                    if (feature.type === "modelType" && feature.tag === "agnostic") {
-                      elementTitle = "Agnostic";
-                      correspondingElement = true;
-                    }
-                    else {
-                      correspondingElement = correspondingCategory.elements.find(e => e.type === "select").options.find(t => t.tag === feature.tag);
-                        if (correspondingElement) {
-                          elementTitle = correspondingElement.title;
-                        }
-                    }
-                  }
-                }
-
-                if (correspondingCategory && correspondingElement) {
-
-                  if (index === 0 || array[index - 1].type !== feature.type) {
-                    accumulator.push(<p key={index}><strong>{categoryTitle}:</strong> {elementTitle}</p>);
-                  }
-                  else {
-                    accumulator[accumulator.length - 1] = (
-                      <p key={index}>{accumulator[accumulator.length - 1].props.children}, {elementTitle}</p>
-                    );
-                  }
-                }
-                  return accumulator;
-            }, [])}
-        </div>
-      )}
-
-      {isFinalMethodPageHovered && (
+      {(isFooterHovered || isFinalMethodPageHovered) && (
         <div className="footer_method_details" style={{position: "absolute", left: `${mousePositionXForFooter}px`, marginTop: "-17.5%"}}>
           <h3 className="method_title_pop_up">{hoveredMethod.title}</h3>
             {hoveredMethod.features.reduce((accumulator, feature, index, array) => {
