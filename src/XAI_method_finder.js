@@ -9,8 +9,8 @@ import { faSquareMinus as unknown,
          faPeopleRoof as trust, faGavel as legitimate, faClipboardList as evaluate, faArrowTrendUp as improve, faSchool as learn,
          faImage as images, faFileLines as text, faTableList as tabular,
          faChartLine as regression, faTag as classification, faBrain as generative,
-         faClone as cnn, faLayerGroup as mlp,
-         faXmark as closeButton
+         faClone as cnn, faLayerGroup as mlp, faCodeBranch as llm,
+         faXmark as closeButton, faForward as llmTransitionButton
          } from '@fortawesome/free-solid-svg-icons'
 
 const MethodFinder = (props) => {
@@ -34,7 +34,8 @@ const MethodFinder = (props) => {
     classification,
     generative,
     cnn,
-    mlp
+    mlp,
+    llm
   };
 
   function getButtonIcon(buttonTag) {
@@ -123,6 +124,15 @@ const MethodFinder = (props) => {
               setSelectedButtons(prevOptions => [...prevOptions, newOption]);
             }
           }
+          else if (tag === "modelType") {
+            if (id === "llm" && modelType.length === 0) {
+              setSelectedButtons(prevOptions => [...prevOptions, newOption]);
+              setIsTooltipVisible(false); // When the LLM option is selected, a new button will appear, for that the tooltip has been made invisible.
+            }
+            else if (id !== "llm" && !modelType.includes("llm")) {
+              setSelectedButtons(prevOptions => [...prevOptions, newOption]);
+            }
+          }
           else {
             setSelectedButtons(prevOptions => [...prevOptions, newOption]);
           }
@@ -199,15 +209,22 @@ const MethodFinder = (props) => {
     if (tag === "modelType") {
       if (modelType.includes(id)) {
         setModelType(modelType.filter(item => item !== id));
-      } else {
+      }
+      else {
         if (id === "unknown") {
           if (!isAnyButtonSelected) {
             setModelType([...modelType, id]);
           }
         }
         else {
-          if (!modelType.includes("unknown"))
-            setModelType([...modelType, id]);
+          if (!modelType.includes("unknown")) {
+            if (id === "llm" && !isAnyButtonSelected) {
+              setModelType([...modelType, id]);
+            }
+            else if (id !== "llm" && !modelType.includes("llm")) {
+              setModelType([...modelType, id]);
+            }
+          }
         }
       }
     }
@@ -249,8 +266,11 @@ const MethodFinder = (props) => {
 
   const handleMouseEnter = (event, currentIndex) => {
     setCurrentTooltip(currentIndex);
-    if (!isTextboxVisible)
+
+    // When "LLM" is selected as Model Type, another button will be visible and Tooltip display is not allowed to avoid conflicts with it.
+    if (!(tag === "modelType" && isLLMSelected) && !isTextboxVisible) {
       setIsTooltipVisible(true);
+    }
   };
 
   const handleMouseLeave = () => {
@@ -305,8 +325,15 @@ const MethodFinder = (props) => {
       // Agnostic was assumed to include CNN and MLP.
       if (!modelType.includes("unknown")) {
         for (let i = 0; i < modelType.length; i++) {
-          isModelsValid = method.features.some(model_type => model_type.type === "modelType" && 
-                                              (modelType[i] !== "unknown" && (model_type.tag === modelType[i] || model_type.tag === "agnostic")));
+          if (modelType[i] === "cnn" || modelType[i] === "mlp") {
+            isModelsValid = method.features.some(model_type => model_type.type === "modelType" && 
+                                                (modelType[i] !== "unknown" && (model_type.tag === modelType[i] || model_type.tag === "agnostic")));
+          }
+          else {
+            isModelsValid = method.features.some(model_type => model_type.type === "modelType" && 
+                                                (modelType[i] !== "unknown" && model_type.tag === modelType[i]));
+          }
+
           if (!isModelsValid) break;
         }
       }
@@ -335,9 +362,9 @@ const MethodFinder = (props) => {
   const [isAnyButtonSelected, setIsAnyButtonSelected] = useState(false);  // except "unknown"
 
   useEffect(() => {
-
+    setTextInput('');
     if ((tag === "role" && targetGroup.includes("unknown")) || (tag === "goal" && explanatoryGoals.includes("unknown")) ||
-        (tag === "dataType" && dataType.includes("unknown")) || (tag === "problemType" === 6 && problemType.includes("unknown")) ||
+        (tag === "dataType" && dataType.includes("unknown")) || (tag === "problemType" && problemType.includes("unknown")) ||
         (tag === "modelType" && modelType.includes("unknown")))
     {
       setIsUnknownOptionSelected(true);
@@ -347,7 +374,6 @@ const MethodFinder = (props) => {
     else {
       setIsUnknownOptionSelected(false);
       setIsTextboxVisible(false);
-      setInput('');
     }
 
   }, [tag, dataType, elements, explanatoryGoals, modelType, problemType, selectedQuestions, targetGroup]);
@@ -365,6 +391,20 @@ const MethodFinder = (props) => {
       }
 
   }, [tag, dataType, elements, explanatoryGoals, modelType, problemType, selectedQuestions, targetGroup]);
+
+  const [isLLMSelected, setIsLLMSelected] = useState(false);
+
+  useEffect(() => {
+    if (modelType.includes("llm")) {
+      setIsLLMSelected(true);
+    }
+    else {
+      setIsLLMSelected(false);
+    }
+
+  }, [modelType]);
+
+
 
   const [textInput, setTextInput] = useState('');
   const [dataTypeInput, setDataTypeInput] = useState('');
@@ -384,10 +424,6 @@ const MethodFinder = (props) => {
     if (tag === "dataType") setDataTypeInput(textInput.trim());
     if (tag === "problemType") setProblemTypeInput(textInput.trim());
     if (tag === "modelType") setModelTypeInput(textInput.trim());
-  };
-
-  const handleKeyPress = (event) => {
-    if (event.key === 'Enter')  handleSubmit();
   };
 
   const getRecommendations = () => {
@@ -499,16 +535,24 @@ const MethodFinder = (props) => {
                   {isTooltipVisible && (currentTooltip >= 0 && currentTooltip <= item1.options.length-1) && (
                     <p className="text" dangerouslySetInnerHTML={{ __html: item1.options[currentTooltip].description }} />
                   )}
+                  {isLLMSelected && (tag === "modelType") && (!isTooltipVisible) && (
+                    // If LLM is selected as model type, it will be continued from the tabs created separately for LLM. 
+                    // This button switches to that tab.
+                    <div className="llm_button_container">
+                      <button className="selected"><FontAwesomeIcon className="icon_container" icon={llmTransitionButton} style={{color: "#E58253"}}/></button>
+                    </div>
+                  )}
                   {isTextboxVisible && (tag === "dataType" || tag === "problemType" || tag === "modelType") && (
                     <div className="textbox_unknown"
                          style={isTooltipVisible && currentTooltip !== item1.options.length-1 ? { display: "none" } : { display: "block" }}>
                       <p className="text" 
                          dangerouslySetInnerHTML={{ __html: item1.options[item1.options.length-1].description }}/>
-                      <input type="text" value={textInput} placeholder=" Text eingeben..." onChange={handleInputChange} onKeyPress={handleKeyPress}/>
-                      <button onClick={handleSubmit}>Einreichen</button>
+                      <div className="input_container">
+                        <textarea className={textInput.trim() !== '' ? "textbox textbox_focused" : "textbox"} value={textInput} placeholder=" Text eingeben..." onChange={handleInputChange}/>
+                        <button onClick={handleSubmit}>Einreichen</button>
+                      </div>
                     </div>
                   )}
-
                 </>
               )
           )}
@@ -671,7 +715,7 @@ const MethodFinder = (props) => {
       )}
 
       {(isFooterHovered || isFinalMethodPageHovered) && (
-        <div className="footer_method_details" style={{position: "absolute", left: `${mousePositionXForFooter}px`, marginTop: "-17.5%"}}>
+        <div className="footer_method_details" style={{position: "absolute", left: `${mousePositionXForFooter+10}px`, marginTop: "-17.5%"}}>
           <h3 className="method_title_pop_up">{hoveredMethod.title}</h3>
             {hoveredMethod.features.reduce((accumulator, feature, index, array) => {
               let correspondingCategory, categoryTitle, correspondingElement, elementTitle;

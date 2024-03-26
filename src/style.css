@@ -458,12 +458,27 @@ body {
   text-align: center;
 }
 
-.textbox_unknown input {
+.input_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.textbox_unknown .textbox {
   background-color: #e9e8e8;
-  border-radius: 4vw;
+  border-radius: 1vw;
   width: 25%;
   height: 1.2vw;
   font-size: 0.9vw;
+  padding: 0.5vw;
+  transition: width 0.3s, height 0.3s;
+  resize: none;
+}
+
+.textbox_unknown .textbox_focused {
+  width: 50%;
+  height: 6vw;
+  overflow-wrap: break-word;
 }
 
 .textbox_unknown button {
@@ -471,7 +486,7 @@ body {
   border-radius: 4vw;
   width: 5vw;
   height: 1.5vw;
-  margin-left: 0.2%;
+  margin-left: 0.5%;
   font-size: 0.7vw;
   cursor: pointer;
 }
@@ -890,7 +905,20 @@ body {
 .question .table-row {
   height: 2.5vw;
   border-radius: 0.2vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
+
+.llm_button_container {
+  margin-top: 1%;
+}
+
+.llm_button_container .selected {
+  margin-left: 53%;
+  width: 6vw;
+  height: 4vw;
+}
+
+.llm_button_container .icon_container {
+  height: 90%;
+  margin: auto;
+}
+

@@ -221,9 +221,15 @@
             "description": "Es handelt sich um eine Art künstliches neuronales Netz, das zur Verarbeitung von Textdaten verwendet wird. Es arbeitet, indem es den Kontext des Textes versteht und diesen Kontext nutzt, um den Text aussagekräftiger zu machen."
           },
           {
+            "title": "Large Language Model",
+            "tag": "llm",
+            "index": 2,
+            "description": "Es handelt sich um ein fortschrittliches künstliches neuronales Netz, das auf das Verstehen und Erzeugen natürlicher Sprache spezialisiert ist. Es ist in der Lage, komplexe sprachliche Muster zu erkennen, den Kontext zu verstehen und menschenähnlichen Text zu erzeugen."
+          },
+          {
             "title": "Unbekannt/Anderes",
             "tag": "unknown",
-            "index": 2,
+            "index": 3,
             "description": "<b>Sue nutzen einen anderen Modelltyp oder Sie sind sich nicht ganz sicher welchen Modelltyp Sie nutzen? Kein Problem! Bitte beschreiben Sie uns in Ihren eigenen Worten welchen KI Algorithmus sie verwenden und wir finden die passende Methode für Sie</b>"
           }
         ]
