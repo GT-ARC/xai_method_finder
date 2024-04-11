@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import ModelData from "./methods.json";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-// icons of buttons
-// (roles, goals, data types, problem types, model types)
+// Ready-made icons used in the application
 import { faSquareMinus as unknown,
          faPeopleGroup as stakeholder, faCircleUser as user, faCode as developer, faCrown as owner, faCircleCheck as validator,
          faPeopleRoof as trust, faGavel as legitimate, faClipboardList as evaluate, faArrowTrendUp as improve, faSchool as learn,
@@ -44,10 +43,12 @@ const MethodFinder = (props) => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  // When the "Weiter" button is pressed, it updates the currentIndex value.
   const handleNextButton = () => {
     setCurrentIndex(currentIndex + 1);
   };
 
+  // When the "Zuruck" button is pressed, it updates the currentIndex value.
   const handleBackButton = () => {
     setCurrentIndex(currentIndex - 1);
   };
@@ -89,12 +90,9 @@ const MethodFinder = (props) => {
       setIsMethodExplanationVisible(false);
   }, [tag]);
 
-  // target group - role
-  // target group - explanatory goal
-  // data type
-  // problem type
-  // model type
   const handleButtonChange = (id, buttonIndex) => {
+
+    // Queries whether the button selected by clicking on it in the interface has been selected before.
     const elementExists = selectedButtons.some(item => (
       item[0] === tag && item[1] === buttonIndex
     ));
@@ -108,7 +106,8 @@ const MethodFinder = (props) => {
       setSelectedButtons(updatedOptions);
     }
     else {  // add to list
-
+      // If "unknown" is selected, other options are not allowed.
+      // Similarly, if anything other than "unknown" is selected, the selection of "unknown" is not allowed.
       if (id === "unknown") {
         if (!isAnyButtonSelected)
           setSelectedButtons(prevOptions => [...prevOptions, newOption]);
@@ -268,6 +267,7 @@ const MethodFinder = (props) => {
     setCurrentTooltip(currentIndex);
 
     // When "LLM" is selected as Model Type, another button will be visible and Tooltip display is not allowed to avoid conflicts with it.
+    // When the LLM option was chosen, it was planned to be directed to an application consisting of different stages. (Not functional yet)
     if (!(tag === "modelType" && isLLMSelected) && !isTextboxVisible) {
       setIsTooltipVisible(true);
     }
@@ -279,6 +279,7 @@ const MethodFinder = (props) => {
 
   const [validMethods, setValidMethods] = useState(ModelData.map(method => method));
 
+  // Methods that are suitable for the selections made by the user in the interface are filtered.
   useEffect(() => {
     const determineMethod = () => {
       const newValidMethods = ModelData.filter(method => checkMethod(method)).map(method => method);
@@ -375,11 +376,9 @@ const MethodFinder = (props) => {
       setIsUnknownOptionSelected(false);
       setIsTextboxVisible(false);
     }
-
   }, [tag, dataType, elements, explanatoryGoals, modelType, problemType, selectedQuestions, targetGroup]);
 
   useEffect(() => {
-
       if ((tag === "role" && !targetGroup.includes("unknown") && targetGroup.length > 0) || (tag === "goal" && !explanatoryGoals.includes("unknown") && explanatoryGoals.length > 0) ||
           (tag === "dataType" && !dataType.includes("unknown") && dataType.length > 0) || (tag === "problemType" && !problemType.includes("unknown") && problemType.length > 0) ||
           (tag === "modelType" && !modelType.includes("unknown") && modelType.length > 0))
@@ -389,7 +388,6 @@ const MethodFinder = (props) => {
       else {
         setIsAnyButtonSelected(false);
       }
-
   }, [tag, dataType, elements, explanatoryGoals, modelType, problemType, selectedQuestions, targetGroup]);
 
   const [isLLMSelected, setIsLLMSelected] = useState(false);
@@ -403,8 +401,6 @@ const MethodFinder = (props) => {
     }
 
   }, [modelType]);
-
-
 
   const [textInput, setTextInput] = useState('');
   const [dataTypeInput, setDataTypeInput] = useState('');
@@ -426,6 +422,7 @@ const MethodFinder = (props) => {
     if (tag === "modelType") setModelTypeInput(textInput.trim());
   };
 
+  // Recommendations are filtered depending on the expertise level set through slider.
   const getRecommendations = () => {
     let expertiseLevel = levelOfExpertise < 3 ? 0 : 1;
     
@@ -443,6 +440,7 @@ const MethodFinder = (props) => {
     window.open(hoveredMethod.qr_url, '_blank');
   };
 
+  // Coordinate is used to set the position of the window that will appear when you hover the mouse over the method names in the interface.
   const [mousePositionXForFooter, setMousePositionXForFooter] = useState(0);
 
   useEffect(() => {
@@ -715,6 +713,9 @@ const MethodFinder = (props) => {
       )}
 
       {(isFooterHovered || isFinalMethodPageHovered) && (
+        // When you hover the mouse over the method names in the footer and on the final page, information about the method is displayed.
+        // Here, some adjustments are made to how the information will be displayed.
+
         <div className="footer_method_details" style={{position: "absolute", left: `${mousePositionXForFooter+10}px`, marginTop: "-17.5%"}}>
           <h3 className="method_title_pop_up">{hoveredMethod.title}</h3>
             {hoveredMethod.features.reduce((accumulator, feature, index, array) => {
